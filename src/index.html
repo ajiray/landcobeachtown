@@ -1,0 +1,654 @@
+<!doctype html>
+<html class="">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Club Laiya Beachtown, a luxurious seaside retreat offering Spinnaker beachfront condos, Residential Premier residences, and Residential Seaside accommodations. Experience the perfect blend of luxury living and coastal tranquility.">
+<meta name="keywords" content="Club Laiya, Beachtown, Spinnaker, Seaside District, Premier District, luxury living, beachfront condos, seaside accommodations">
+  <meta name="author" content="Ajiray Diego De Leon">
+   <link href="./output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Archivo&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"></noscript>
+
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" onload="this.onload=null;this.rel='stylesheet'">
+  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script defer src="./index.js"></script>
+  <link rel="icon" type="image/png" href="./images/logo.png">
+  <title>CLUB LAIYA</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+<style>
+     @font-face {
+      font-family:"Font Awesome 6 Brands"; font-style:normal; font-weight:400; font-display:swap;
+      src:url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/webfonts/fa-brands-400.woff2") format("woff2");
+    }
+    @font-face {
+      font-family:"Font Awesome 6 Free"; font-style:normal; font-weight:900; font-display:swap;
+      src:url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/webfonts/fa-solid-900.woff2") format("woff2");
+    }
+
+    /* your font usage (unchanged) */
+    p { font-family:'Archivo', sans-serif; }
+    h1 { font-family:'Poppins', sans-serif; }
+    a { font-family:'Archivo', sans-serif; }
+    
+    p {
+    font-family: 'Archivo', sans-serif;
+   
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+ 
+}
+a {
+    font-family: 'Archivo', sans-serif;
+ 
+}
+
+    #slideshow {
+    position: relative;
+    overflow: hidden;
+}
+
+#slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#slideshow img:first-child {
+    opacity: 1; /* Set the opacity of the first image to 1 */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for the navigation links */
+ul li {
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+
+/* Style for the underline effect on hover and active */
+ul li a {
+    text-decoration: none;
+    color: #e5e7eb; /* Change the color as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    top: 25px;
+    left: 0;
+    background-color: #fff; /* Change the color as needed */
+    transition: width 0.4s ease;
+}
+
+ul li a:hover::before,
+ul li a.active::before {
+    width: 100%;
+}
+
+
+@keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeOutToRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+  #backToTopBtn {
+    animation: fadeLeft 0.5s ease-out;
+    border: none;
+    border-radius: 100%; /* Rounded corners */
+    padding: 5px 10px; /* Adjust padding as needed */
+    cursor: pointer;
+  }
+
+  #backToTopBtn.fade-out {
+    animation: fadeOutToRight 0.5s ease-out;
+    opacity: 0; /* Ensure the initial state is transparent */
+    pointer-events: none; /* Disable pointer events during the fade-out */
+} 
+
+#fourth img {
+  width: 180px;
+  height: auto;
+  transition: transform 0.3s ease-in-out; /* Added transition for smooth effect */
+  cursor: pointer;
+}
+
+#fourth img:hover {
+  transform: scale(1.05); /* Increase the scale factor for a zoom-in effect */
+}
+
+.scroller {
+  max-width: 100%;
+}
+
+.scroller__inner {
+  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 40s)
+    var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="left"] {
+  --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+  --_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+  --_animation-duration: 5s;
+}
+
+.scroller[data-speed="slow"] {
+  --_animation-duration: 25s;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+.modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+    }
+
+    /* Style for the image inside the modal */
+    .modal-content {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .image-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-container:hover img {
+        transform: scale(1.1); /* Increase the scale on hover */
+        transition: transform 0.3s ease; /* Add a smooth transition effect */
+    }
+
+
+</style>
+<body class="h-screen w-full overflow-x-hidden">
+
+  <div class="hidden fixed inset-0 bg-white overflow-hidden z-50" id="menu">
+    <div class="flex flex-col justify-start items-center w-full h-full space-y-10 mt-20">
+      <i class="fa-solid fa-x absolute right-5 top-7 text-2xl cursor-pointer" onclick="showMenu()"></i>
+      <p><a href="./index.html" class="text-4xl tracking-wider">Home</a></p>
+      <p><a href="./spinnaker.html" class="text-4xl tracking-wider">Spinnaker</a></p>
+      <p><a href="./seaside.html" class="text-4xl tracking-wider">Seaside District</a></p>
+      <p><a href="./premier.html" class="text-4xl tracking-wider">Premier District</a></p>
+      <p><a href="./contactUs.html" class="text-4xl tracking-wider">Contact Us</a></p>
+    </div>
+   </div>
+
+
+    <button class="text-2xl fixed right-5 lg:bottom-5 bottom-10 z-30 hidden bg-blue-400 text-white hover:bg-blue-600 transition duration-300 ease-in-out" id="backToTopBtn" onclick="backToTop()">
+      <i class="fa-solid fa-angles-up"></i>
+      </button>
+
+  <!-- First Section -->
+ <section id="first" class="h-full w-full relative">
+    <picture>
+      <source srcset="./images/clublaiya/home-bg2.avif" type="image/avif">
+      <source srcset="./images/clublaiya/home-bg2.webp" type="image/webp">
+      <img 
+        src="./images/clublaiya/home-bg2.png" 
+        alt="club laiya beachtown"
+        class="w-full h-full object-cover"
+        width="1920" height="1080"
+        fetchpriority="high"
+        decoding="async">
+    </picture>
+
+    <nav class="w-full h-[10%] flex justify-between xl:justify-center space-x-24 items-center absolute top-0">
+      <picture>
+        <source srcset="./images/logo.avif" type="image/avif">
+        <source srcset="./images/logo.webp" type="image/webp">
+        <img
+          src="./images/logo.png"
+          alt="Club Laiya logo"
+          class="w-40 h-14 xl:ml-10"
+          width="160" height="56"
+          decoding="async"
+          fetchpriority="low">
+      </picture>
+
+      <div class="xl:hidden absolute right-8 text-gray-200" onclick="showMenu()" id="burger">
+        <i class=" fa-solid fa-bars fa-lg cursor-pointer"></i>
+      </div>
+      <ul class="mr-10 hidden xl:block">
+        <li><a href="./index.html" class="border-b-2 border-gray-200 pb-2 tracking-wider">Home</a></li>
+        <li><a href="./spinnaker.html" class="tracking-wider">Spinnaker</a></li>
+        <li><a href="./seaside.html" class="tracking-wider">Seaside District</a></li>
+        <li><a href="./premier.html" class="tracking-wider border-r-2 border-gray-300 pr-4">Premier District</a></li>
+        <button><a href="./contactUs.html" class="bg-amber-500 text-gray-800 font-semibold px-8 py-3 rounded-full hover:bg-amber-600 transition duration-300 tracking-wider">Contact Us</a></button>
+      </ul>
+    </nav>
+
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-100 w-full">
+      <h1 class="font-extrabold mb-3 text-7xl md:text-8xl w-full xl:text-9xl tracking-widest text-gray-200" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">LANDCO</h1>
+      <p class="text-2xl xl:text-4xl tracking-widest text-gray-200 mb-2 xl:mb-5" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">Beachtown</p>
+      <button class="bg-amber-500 text-gray-800 font-semibold px-8 py-3 rounded-full hover:bg-amber-600 transition duration-300 tracking-wider" onclick="navigateToSecond()" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">Explore Now</button>
+    </div>
+  </section>
+
+
+  <section class="w-full h-auto bg-gradient-to-b from-white to-nude py-20" id="second">
+    <h2 class="text-5xl lg:text-7xl font-bold text-gray-700 text-center" data-aos="fade-up">FEATURED LISTING</h2>
+    <div class="space-y-10 lg:space-y-0 items-center w-full h-full flex justify-center lg:items-start mt-20 lg:space-x-10 flex-col lg:flex-row">
+      <!-- First 3 featured listings -->
+      <div class="w-[350px] lg:w-[400px] h-[500px] rounded-md relative overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+        <picture>
+          <source srcset="./images/spinnaker/spinnaker.avif" type="image/avif">
+          <source srcset="./images/spinnaker/spinnaker.webp" type="image/webp">
+          <img
+            src="./images/spinnaker/spinnaker.jpg"
+            alt="Spinnaker Beachfront Condo"
+            class="absolute inset-0 w-full h-full object-cover"
+            width="400" height="500"
+            loading="lazy" decoding="async">
+        </picture>
+        <a href="./spinnaker.html"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
+        <h2 class="text-xl font-bold absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full">Spinnaker Beachfront Condo</h2>
+      </div>
+      <div class="w-[350px] lg:w-[400px] h-[500px] rounded-md relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <picture>
+          <source srcset="./images/premierSeaside/1.avif" type="image/avif">
+          <source srcset="./images/premierSeaside/1.webp" type="image/webp">
+          <img
+            src="./images/premierSeaside/1.png"
+            alt="Seaside District"
+            class="absolute inset-0 w-full h-full object-cover"
+            width="400" height="500"
+            loading="lazy" decoding="async">
+        </picture>
+        <a href="./seaside.html"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
+        <h2 class="text-xl font-bold absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full">Seaside District</h2>
+      </div>
+      <div class="w-[350px] lg:w-[400px] h-[500px] rounded-md relative overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+        <picture>
+          <source srcset="./images/premierDistrict/1.avif" type="image/avif">
+          <source srcset="./images/premierDistrict/1.webp" type="image/webp">
+          <img
+            src="./images/premierDistrict/1.png"
+            alt="Premier District"
+            class="absolute inset-0 w-full h-full object-cover"
+            width="400" height="500"
+            loading="lazy" decoding="async">
+        </picture>
+        <a href="./premier.html"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
+        <h2 class="text-xl font-bold absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full">Premier District</h2>
+      </div>
+    </div>
+    <!-- Additional 3 featured listings below -->
+    <div class="space-y-10 lg:space-y-0 items-center w-full h-full flex justify-center lg:items-start mt-10 lg:space-x-10 flex-col lg:flex-row">
+      <!-- The Nautilus -->
+      <div class="w-[350px] lg:w-[400px] h-[500px] rounded-md relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <picture>
+           <source srcset="./images/nautilus/The_Nautilus.avif" type="image/avif">
+          <source srcset="./images/nautilus/The_Nautilus.webp" type="image/webp">
+          <img
+            src="./images/nautilus/The_Nautilus.jpg"
+            alt="The Nautilus"
+            class="absolute inset-0 w-full h-full object-cover"
+            width="400" height="500"
+            loading="lazy" decoding="async">
+        </picture>
+        <a href="#"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
+        <h2 class="text-xl font-bold absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full">The Nautilus</h2>
+      </div>
+      <!-- The Casobe Estate -->
+      <div class="w-[350px] lg:w-[400px] h-[500px] rounded-md relative overflow-hidden" data-aos="fade-up" data-aos-delay="250">
+        <picture>
+          <source srcset="./images/nautilus/The_Nautilus.avif" type="image/avif">
+          <source srcset="./images/nautilus/The_Nautilus.webp" type="image/webp">
+          <img
+            src="./images/nautilus/The_Nautilus.jpg"
+            alt="The Casobe Estate"
+            class="absolute inset-0 w-full h-full object-cover"
+            width="400" height="500"
+            loading="lazy" decoding="async">
+        </picture>
+        <a href="#"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
+        <h2 class="text-xl font-bold absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full">The Casobe Estate</h2>
+      </div>
+      <!-- The Residences -->
+      <div class="w-[350px] lg:w-[400px] h-[500px] rounded-md relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+        <picture>
+          <source srcset="./images/spinnaker/spinnaker.avif" type="image/avif">
+          <source srcset="./images/spinnaker/spinnaker.webp" type="image/webp">
+          <img
+            src="./images/spinnaker/spinnaker.jpg"
+            alt="The Residences"
+            class="absolute inset-0 w-full h-full object-cover"
+            width="400" height="500"
+            loading="lazy" decoding="async">
+        </picture>
+        <a href="#"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
+        <h2 class="text-xl font-bold absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full">The Residences</h2>
+      </div>
+    </div>
+  </section>
+
+  <section id="third" class="w-full h-auto py-40 bg-nude">
+    <h2 class="text-6xl xl:text-7xl font-bold text-gray-700 text-center pt-64 xl:pt-0" data-aos="fade-up">THE DEVELOPER</h2>
+    <div class="w-full h-auto mt-20 flex flex-col xl:flex-row items-center justify-center">
+      <div class="w-full xl:w-[50%] h-full flex justify-center items-center flex-col space-y-8 xl:ml-10">
+        <picture>
+          <source srcset="./images/clublaiya/landcologo.avif" type="image/avif">
+          <source srcset="./images/clublaiya/landcologo.webp" type="image/webp">
+          <img src="./images/clublaiya/landcologo.png" alt="landco logo" class="w-48 xl:w-64" width="256" height="128" loading="lazy" decoding="async">
+        </picture>
+        <h2 class="text-2xl xl:text-3xl font-bold mb-4 text-gray-100 bg-brown w-auto rounded-md py-2 xl:py-5 px-4 xl:px-10" data-aos="fade-up">NATIONWIDE DEVELOPMENTS</h2>
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-10">
+          <div class="bg-white p-8 xl:p-10 rounded-md shadow-md" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="25">
+            <strong class="block text-lg xl:text-xl text-gray-900 text-center">19 Projects Nationwide</strong>
+          </div>
+          <div class="bg-white p-8 xl:p-10 rounded-md shadow-md" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="50">
+            <strong class="block text-lg xl:text-xl text-gray-900 text-center">17 Completed Projects</strong>
+          </div>
+          <div class="bg-white p-8 xl:p-10 rounded-md shadow-md" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="75">
+            <strong class="block text-lg xl:text-xl text-gray-900 text-center">3 Ongoing Developments</strong>
+          </div>
+          <div class="bg-white p-8 xl:p-10 rounded-md shadow-md" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="100">
+            <strong class="block text-lg xl:text-xl text-gray-900 text-center">7 Actively Selling Projects</strong>
+          </div>
+        </div>
+      </div>
+      <div class="w-full lg:w-[50%] h-full xl:flex justify-center items-center lg:mt-0 hidden lg:mr-20" data-aos="fade-up">
+        <picture>
+          <source srcset="./images/clublaiya/landco.avif" type="image/avif">
+          <source srcset="./images/clublaiya/landco.webp" type="image/webp">
+          <img src="./images/clublaiya/landco.png" alt="" class="w-full max-w-[70%]" width="700" height="500" loading="lazy" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section id="fourth" class="w-full h-auto py-20 bg-nude">
+    <div class="scroller" data-direction="right" data-speed="slow">
+      <div class="scroller__inner">
+        <picture>
+          <source srcset="./images/awards/award-10th-international-finance.avif" type="image/avif">
+          <source srcset="./images/awards/award-10th-international-finance.webp" type="image/webp">
+          <img src="./images/awards/award-10th-international-finance.jpg" alt="International Finance Award" class="rounded-md" width="180" height="120" loading="lazy" decoding="async" onclick="viewImage('./images/awards/award-10th-international-finance.jpg')">
+        </picture>
+        <picture>
+          <source srcset="./images/awards/award-edge.avif" type="image/avif">
+          <source srcset="./images/awards/award-edge.webp" type="image/webp">
+          <img src="./images/awards/award-edge.jpg" alt="EDGE Award" class="rounded-md" width="180" height="120" loading="lazy" decoding="async" onclick="viewImage('./images/awards/award-edge.jpg')">
+        </picture>
+        <picture>
+          <source srcset="./images/awards/award-fiabci.avif" type="image/avif">
+          <source srcset="./images/awards/award-fiabci.webp" type="image/webp">
+          <img src="./images/awards/award-fiabci.jpg" alt="FIABCI Award" class="rounded-md" width="180" height="120" loading="lazy" decoding="async" onclick="viewImage('./images/awards/award-fiabci.jpg')">
+        </picture>
+        <picture>
+          <source srcset="./images/awards/award-lamudi.avif" type="image/avif">
+          <source srcset="./images/awards/award-lamudi.webp" type="image/webp">
+          <img src="./images/awards/award-lamudi.jpg" alt="Lamudi Award" class="rounded-md" width="180" height="120" loading="lazy" decoding="async" onclick="viewImage('./images/awards/award-lamudi.jpg')">
+        </picture>
+        <picture>
+          <source srcset="./images/awards/award-panfinance.avif" type="image/avif">
+          <source srcset="./images/awards/award-panfinance.webp" type="image/webp">
+          <img src="./images/awards/award-panfinance.jpg" alt="Pan Finance Award" class="rounded-md" width="180" height="120" loading="lazy" decoding="async" onclick="viewImage('./images/awards/award-panfinance.jpg')">
+        </picture>
+        <picture>
+          <source srcset="./images/awards/award1.avif" type="image/avif">
+          <source srcset="./images/awards/award1.webp" type="image/webp">
+          <img src="./images/awards/award1.jpg" alt="Award 1" class="rounded-md" width="180" height="120" loading="lazy" decoding="async" onclick="viewImage('./images/awards/award1.jpg')">
+        </picture>
+        <picture>
+          <source srcset="./images/awards/award2.avif" type="image/avif">
+          <source srcset="./images/awards/award2.webp" type="image/webp">
+          <img src="./images/awards/award2.jpg" alt="Award 2" class="rounded-md" width="180" height="120" loading="lazy" decoding="async" onclick="viewImage('./images/awards/award2.jpg')">
+        </picture>
+        <picture>
+          <source srcset="./images/awards/award3.avif" type="image/avif">
+          <source srcset="./images/awards/award3.webp" type="image/webp">
+          <img src="./images/awards/award3.jpg" alt="Award 3" class="rounded-md" width="180" height="120" loading="lazy" decoding="async" onclick="viewImage('./images/awards/award3.jpg')">
+        </picture>
+        <picture>
+          <source srcset="./images/awards/TGEAwardsLogo.avif" type="image/avif">
+          <source srcset="./images/awards/TGEAwardsLogo.webp" type="image/webp">
+          <img src="./images/awards/TGEAwardsLogo.jpg" alt="TGE Awards" class="rounded-md" width="180" height="120" loading="lazy" decoding="async" onclick="viewImage('./images/awards/TGEAwardsLogo.jpg')">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <div class="w-full min-h-auto py-40 bg-nude overflow-hidden">
+    <section class="w-full min-h-full px-4 flex justify-center items-center xl:flex-row flex-col">
+      <div class="w-full h-full relative mt-8 xl:mt-0 xl:hidden flex justify-center items-center">
+        <div class="w-[70%] h-full object-cover rounded-full overflow-hidden">
+          <picture>
+            <source srcset="./images/mp.avif" type="image/avif">
+            <source srcset="./images/mp.webp" type="image/webp">
+            <img src="./images/mp.png" alt="" class="w-full h-full object-cover" width="640" height="640" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+      
+      <div class="w-full xl:w-[50%] h-full p-5 md:p-10 flex flex-col justify-center items-center">
+        <h1 class="text-4xl md:text-5xl lg:text-5xl text-center font-semibold text-gray-800 mb-2 mt-20" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">Manuel V. Pangilinan</h1>
+        <p class="text-gray-600 text-lg md:text-xl mb-5 text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">Chairman, Landco Pacific Corporation</p>
+        <div class="mt-4 text-gray-800 space-y-10 xl:space-y-3">
+          <div class="mb-3 p-3 border rounded shadow flex justify-center space-x-1 items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <p class="font-bold">Chairman, PLDT and Smart Communications</p>
+            <picture>
+              <source srcset="./images/pldt.avif" type="image/avif">
+              <source srcset="./images/pldt.webp" type="image/webp">
+              <img src="./images/pldt.png" alt="PLDT" class="w-16 h-12" width="64" height="48" loading="lazy" decoding="async">
+            </picture>
+            <picture>
+              <source srcset="./images/smart.avif" type="image/avif">
+              <source srcset="./images/smart.webp" type="image/webp">
+              <img src="./images/smart.png" alt="Smart" class="w-16 h-12" width="64" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+
+          <div class="mb-3 p-3 border rounded shadow flex justify-center space-x-5 items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <p class="font-bold">Chairman, Manila Electric Company (Meralco)</p>
+            <picture>
+              <source srcset="./images/Meralco.svg.avif" type="image/avif">
+              <source srcset="./images/Meralco.svg.webp" type="image/webp">
+              <img src="./images/Meralco.svg.png" alt="Meralco" class="w-16 h-12" width="64" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+
+          <div class="mb-3 p-3 border rounded shadow flex justify-center space-x-5 items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <p class="font-bold">Chairman, Maynilad Water Services Corporation</p>
+            <picture>
+              <source srcset="./images/Maynilad-Logo.avif" type="image/avif">
+              <source srcset="./images/Maynilad-Logo.webp" type="image/webp">
+              <img src="./images/Maynilad-Logo.png" alt="Maynilad" class="w-16 h-12" width="64" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+
+          <div class="mb-3 p-3 border rounded shadow flex justify-center space-x-5 items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <p class="font-bold">Chairman, Mediaquest Incorporated (TV5), Associated Broadcasting Corp.</p>
+            <picture>
+              <source srcset="./images/TV5_(Philippines)_logo.svg.avif" type="image/avif">
+              <source srcset="./images/TV5_(Philippines)_logo.svg.webp" type="image/webp">
+              <img src="./images/TV5_(Philippines)_logo.svg.png" alt="TV5" class="w-16 h-12" width="64" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+
+          <div class="mb-3 p-3 border rounded shadow flex justify-center space-x-5 items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <p class="font-bold">Chairman, Philex Mining Corporation, Philex Petroleum Corporation</p>
+            <picture>
+              <source srcset="./images/PMC.avif" type="image/avif">
+              <source srcset="./images/PMC.webp" type="image/webp">
+              <img src="./images/PMC.png" alt="Philex Mining" class="w-40 h-12" width="160" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+
+          <div class="mb-3 p-3 border rounded shadow flex justify-center space-x-5 items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <p class="font-bold">Chairman, Manila North Tollways Corporation (NLEX, SCTEX, CALAX)</p>
+            <picture>
+              <source srcset="./images/MNT.avif" type="image/avif">
+              <source srcset="./images/MNT.webp" type="image/webp">
+              <img src="./images/MNT.png" alt="MNTC" class="w-40 h-12" width="160" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+
+          <div class="mb-3 p-3 border rounded shadow flex justify-center space-x-5 items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <p class="font-bold">Chairman, Metro Pacific Hospitals (Makati Med, Cardinal Santos, Asian Hospital, etc)</p>
+            <picture>
+              <source srcset="./images/mph.avif" type="image/avif">
+              <source srcset="./images/mph.webp" type="image/webp">
+              <img src="./images/mph.png" alt="Metro Pacific Hospitals" class="w-28 h-14" width="112" height="56" loading="lazy" decoding="async">
+            </picture>
+          </div>
+
+          <div class="mb-3 p-3 border rounded shadow flex justify-center space-x-5 items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <p class="font-bold">Chairman, Light Rail Manila Corp.</p>
+            <picture>
+              <source srcset="./images/lrm.avif" type="image/avif">
+              <source srcset="./images/lrm.webp" type="image/webp">
+              <img src="./images/lrm.png" alt="LRMC" class="w-28 h-14" width="112" height="56" loading="lazy" decoding="async">
+            </picture>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full xl:w-[40%] h-full relative mt-8 xl:mt-0 hidden xl:block overflow-hidden">
+        <div class="w-full h-full object-cover bg-gradient-to-b from-yellow-50 to bg-yellow-100 overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="50">
+          <picture>
+            <source srcset="./images/mp.avif" type="image/avif">
+            <source srcset="./images/mp.webp" type="image/webp">
+            <img src="./images/mp.png" alt="" class="w-full h-full object-cover" width="900" height="900" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="w-full h-auto bg-nude pb-48">
+    <h1 class="text-5xl w-full text-center xl:text-8xl pt-20 text-gray-700 tracking-wider mb-3" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">LOCATION</h1>
+    <p class="w-full text-base px-2 xl:w-[50%] mx-auto text-center xl:text-xl text-gray-700" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">Under three hours from Metro Manila, the master-planned Resort Estates feature leisure living in a true resort community highlighting wide open spaces and beautiful promenades, with parks and retail landscapes.</p>
+
+    <div class="flex w-full flex-col space-x-0 space-y-10 xl:space-y-0 xl:flex-row justify-center items-center xl:space-x-10 mt-10" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+      <p style="background-color: #3498db; color: white; padding: 10px;" class="rounded-md text-center">Via R-3</p>
+      <p style="background-color: #f1c40f; color: black; padding: 10px;" class="rounded-md text-center">Via Garcia - Rosario - San Juan - Candelaria Rd Via</p>
+      <p style="background-color: #2ecc71; color: white; padding: 10px;" class="rounded-md text-center">Pan-Philippine Hwy</p>
+    </div>
+
+    <div class="flex justify-center items-center mt-10 relative">
+      <picture>
+        <source srcset="./images/clublaiya/location.avif" type="image/avif">
+        <source srcset="./images/clublaiya/location.webp" type="image/webp">
+        <img src="./images/clublaiya/location.png" alt="location" class="w-full max-w-[900px] xl:rounded-md" width="900" height="600" loading="lazy" decoding="async" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="75">
+      </picture>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white p-8">
+    <div class="container mx-auto flex flex-col lg:flex-row justify-between">
+      <div class="mb-4 lg:mb-0 space-y-2">
+        <picture>
+          <source srcset="./images/logo.avif" type="image/avif">
+          <source srcset="./images/logo.webp" type="image/webp">
+          <img src="./images/logo.png" alt="Landco Pacific Corporation" class="w-40 h-14 mb-4" width="160" height="56" loading="lazy" decoding="async">
+        </picture>
+        <p>Landco Pacific Corporation</p>
+        <p>25th Floor Tower 1, Insular Life Centre</p>
+        <p>Insular Drive, Filinvest Corporate City, Alabang, Muntinlupa, 1781 Metro Manila</p>
+        <p>Phone: (+63) 998 5694 678, (+63) 917 7920 404</p>
+        <p>Email: <a href="mailto:mcdeleon@landcosales.ph">mcdeleon@landcosales.ph</a></p>
+      </div>
+
+      <div class="mb-4 lg:mb-0">
+        <h3 class="text-lg font-semibold mb-2">Navigation</h3>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./spinnaker.html">Spinnaker</a></li>
+          <li><a href="./seaside.html">Seaside District</a></li>
+          <li><a href="./premier.html">Premier District</a></li>
+          <li><a href="./contactUs.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Connect with Us</h3>
+        <div class="flex space-x-4">
+          <a href="https://www.facebook.com/ajilandcosales" target="_blank" class="text-blue-500 hover:text-blue-700"><i class="fa-brands fa-facebook fa-xl"></i></a>
+          <a href="https://www.instagram.com/playalaiyabatangas/" target="_blank" class="text-red-500 hover:text-red-700"><i class="fa-brands fa-instagram fa-xl"></i></a>
+          <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvqKMHFDcBJkfGpClgCXLgdkSXJncrDqBSZKvJVdZtxzHVfPqjBXtRFdVHtHNBwlHDrVqB" target="_blank" class="text-amber-500 hover:text-amber-700"><i class="fa-solid fa-envelope fa-xl"></i></a>
+          <a href="viber://chat?number=+639985694678" class="text-viber hover:text-violet-950"><i class="fa-brands fa-viber fa-xl"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+ 
+  
+  
+
+  <script src="./index.js"></script>
+</body>
+</html>

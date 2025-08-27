@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Spinnaker</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    
+<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+    
+   
+    p {
+    font-family: 'Archivo', sans-serif;
+   
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+ 
+}
+a {
+    font-family: 'Archivo', sans-serif;
+ 
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for the navigation links */
+ul li {
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+
+/* Style for the underline effect on hover and active */
+ul li a {
+    text-decoration: none;
+    color: #000; /* Change the color as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    top: 25px;
+    left: 0;
+    background-color: #000; /* Change the color as needed */
+    transition: width 0.4s ease;
+}
+
+ul li a:hover::before,
+ul li a.active::before {
+    width: 100%;
+}
+
+.nav-bar {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Adjust the values as needed */
+    }
+
+    .clip {
+        clip-path: polygon(14% 0, 100% 0%, 100% 100%, 0% 100%);
+    }
+    
+    #backgroundDiv {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #backToTopBtn {
+    animation: fadeLeft 0.5s ease-out;
+    border: none;
+    border-radius: 100%; /* Rounded corners */
+    padding: 5px 10px; /* Adjust padding as needed */
+    cursor: pointer;
+  }
+
+  #backToTopBtn.fade-out {
+    animation: fadeOutToRight 0.5s ease-out;
+    opacity: 0; /* Ensure the initial state is transparent */
+    pointer-events: none; /* Disable pointer events during the fade-out */
+} 
+
+@keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeOutToRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+.hati {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+}
+
+.modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 50;
+    }
+
+    /* Style for the image inside the modal */
+    .modal-content {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .image-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-container:hover img {
+        transform: scale(1.1); /* Increase the scale on hover */
+        transition: transform 0.3s ease; /* Add a smooth transition effect */
+    }
+
+    </style>
+</head>
+
+     <body class="h-screen w-full overflow-x-hidden">
+
+      <div class="hidden fixed inset-0 bg-white overflow-hidden z-50" id="menu">
+        <div class="flex flex-col justify-start items-center w-full h-full space-y-10 mt-20">
+          <i class="fa-solid fa-x absolute right-5 top-7 text-2xl cursor-pointer" onclick="showMenu()"></i>
+          <p><a href="./index.html" class="text-4xl">Home</a></p>
+          <p><a href="./spinnaker.html" class="text-4xl">Spinnaker</a></p>
+          <p><a href="./seaside.html" class="text-4xl">Seaside District</a></p>
+          <p><a href="./premier.html" class="text-4xl">Premier District</a></p>
+          <p><a href="./contactUs.html" class="text-4xl tracking-wider">Contact Us</a></p>
+          <button class="bg-blue-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-600 transition duration-300">View Virtual Tour</button>
+        </div>
+       </div>
+    
+    
+        <button class="text-2xl fixed right-5 lg:bottom-5 bottom-10 z-30 hidden bg-blue-400 text-white hover:bg-blue-600 transition duration-300 ease-in-out" id="backToTopBtn" onclick="backToTop()">
+          <i class="fa-solid fa-angles-up"></i>
+          </button>
+    
+      <!-- First Section -->
+    <section id="first" class="h-full w-full">
+    
+      <!-- navbar -->
+     <nav class="w-full h-[10%] flex justify-between items-center shadow">
+        
+        <picture>
+          <source srcset="./images/logo.avif" type="image/avif">
+          <source srcset="./images/logo.webp" type="image/webp">
+          <img src="./images/logo.png" alt="logo" class="w-40 h-14 xl:ml-10">
+        </picture>
+    
+        <div class="xl:hidden absolute right-8" onclick="showMenu()" id="burger">
+        <i class=" fa-solid fa-bars fa-lg cursor-pointer"></i>
+      </div>
+        <ul class="mr-10 hidden xl:block">
+            <li><a href="./index.html" class="tracking-wider">Home</a></li>
+            <li><a href="./spinnaker.html" class="border-b-2 border-black pb-2 tracking-wider">Spinnaker</a></li>
+            <li><a href="./seaside.html" class="nav-link tracking-wider">Seaside District</a></li>
+            <li><a href="./premier.html" class="nav-link tracking-wider">Premier District</a></li>
+            <li><a href="./contactUs.html" class="tracking-wider">Contact Us</a></li>
+            <a href="https://thespinnaker.landco.ph/360/?fbclid=IwAR1gBKLvF5GNnxfqTWwplHagHTGZM_jBWtn8DerbYsD5w4PT6loimdR6R9g" target="_blank"><button class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 transition duration-300 tracking-widest font-thin">View Virtual Tour</button></a>
+        </ul>
+     </nav>
+
+     
+     <div class="w-full h-[90%] flex justify-center items-center flex-col lg:flex-row">
+      <div class="w-full lg:w-[50%] h-[40%] hati lg:h-full flex justify-center items-center relative lg:hidden" style="background-image: url(./images/spinnaker/spinnaker.jpg); background-size: cover; background-position: center;">
+
+      </div>
+        <div class="w-full lg:w-[50%] h-[60%] lg:h-full flex justify-center lg:items-center relative mt-10 lg:mt-0">
+            <div class="text-center px-5 lg:px-0">
+                <h1 class="text-5xl md:text-8xl font-extrabold text-gray-700 leading-tight mb-6" data-aos="fade-up" data-aos-duration="1000">
+                  Welcome to<br>
+                  <span class="text-blue-400">The Spinnaker</span>
+                </h1>
+                <p class="text-lg text-gray-600">
+                  Discover luxury living in our stunning condo community
+                </p>
+                <a href="#" class="mt-8 inline-block px-6 py-3 bg-blue-400 font-semibold rounded-full transition duration-300 hover:bg-blue-600 text-white" onclick="navigateToSecond()">
+                  Sail to your new Home
+                </a>
+              </div>
+              
+    
+            <div class="absolute right-2 h-full hidden flex-col space-y-5 justify-end items-center mb-10 xl:flex">
+                <button class="mr-[-60px]" onclick="changeBackground('./images/spinnaker/spinnaker.jpg')">
+                  <picture>
+                    <source srcset="./images/spinnaker/spinnaker.avif" type="image/avif">
+                    <source srcset="./images/spinnaker/spinnaker.webp" type="image/webp">
+                    <img src="./images/spinnaker/spinnaker.jpg" alt="" class="w-[60px] h-[60px] rounded-full">
+                  </picture>
+                </button>
+                <button class="mr-[-35px]" onclick="changeBackground('./images/spinnaker/spinnaker4.png')">
+                  <picture>
+                    <source srcset="./images/spinnaker/spinnaker4.avif" type="image/avif">
+                    <source srcset="./images/spinnaker/spinnaker4.webp" type="image/webp">
+                    <img src="./images/spinnaker/spinnaker4.png" alt="" class="w-[60px] h-[60px] rounded-full">
+                  </picture>
+                </button>
+                <button class="mr-[-10px]" onclick="changeBackground('./images/spinnaker/spinnaker3.png')">
+                  <picture>
+                    <source srcset="./images/spinnaker/spinnaker3.avif" type="image/avif">
+                    <source srcset="./images/spinnaker/spinnaker3.webp" type="image/webp">
+                    <img src="./images/spinnaker/spinnaker3.png" alt="" class="w-[60px] h-[60px] rounded-full">
+                  </picture>
+                </button>
+            </div>
+        </div>
+    
+        <div id="backgroundDiv" class="w-[50%] h-full clip hidden lg:block" style="background-image: url(./images/spinnaker/spinnaker.jpg); background-size: cover; background-position: center;">    
+    </div>
+    </section>
+
+  <!-- What is The Spinnaker Section -->
+<section id="second" class="w-full bg-white py-20 flex flex-col items-center justify-center">
+  <h2 class="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-700 text-center tracking-wide">
+    What is The Spinnaker?
+  </h2>
+
+  <!-- Add spacing between header and video -->
+  <div class="mt-16 w-full flex justify-center">
+    <iframe
+      src="https://www.youtube.com/embed/h7jA6E6_MOw"
+      title="What is The Spinnaker?"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      class="w-full max-w-5xl aspect-video rounded-xl shadow-2xl">
+    </iframe>
+  </div>
+</section>
+
+
+   <h1 class="w-full h-auto text-center text-4xl md:text-6xl lg:text-8xl pt-20 text-gray-700 mb-20" data-aos="flip-left" data-aos-delay="50" data-aos-duration="1500">Available Units</h1>
+
+<section class="w-full min-h-auto pb-20 overflow-x-hidden">
+  <h2 class="w-full text-center text-2xl lg:text-3xl mt-4 mb-6 relative">
+      <span class="relative z-10 bg-white px-4 lg:text-4xl text-3xl tracking-widest">STUDIO UNIT</span>
+      <span class="absolute h-1 w-[90%] bg-gray-800 bottom-3 left-1/2 transform -translate-x-1/2"></span>
+  </h2>
+
+  <div class="w-full h-auto flex flex-col lg:flex-row justify-center items-center space-y-5 lg:space-y-0 text-center">
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center mx-auto">
+      <picture>
+        <source srcset="./images/spinnaker/studio.avif" type="image/avif">
+        <source srcset="./images/spinnaker/studio.webp" type="image/webp">
+        <img src="./images/spinnaker/studio.png" alt="Studio Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/studio.png')">
+      </picture>
+    </div>
+
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center">
+      <picture>
+        <source srcset="./images/spinnaker/studioFP.avif" type="image/avif">
+        <source srcset="./images/spinnaker/studioFP.webp" type="image/webp">
+        <img src="./images/spinnaker/studioFP.png" alt="Studio Floor Plan Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/studioFP.png')">
+      </picture>
+    </div>
+  </div>
+</section>
+
+<section id="third" class="w-full min-h-auto pb-20 overflow-x-hidden">
+  <h2 class="w-full text-center text-2xl lg:text-3xl mt-4 mb-6 relative">
+      <span class="relative z-10 bg-white px-4 lg:text-4xl text-3xl tracking-widest">1 BEDROOM UNIT</span>
+      <span class="absolute h-1 w-[90%] bg-gray-800 bottom-3 left-1/2 transform -translate-x-1/2"></span>
+  </h2>
+
+  <div class="w-full h-auto flex flex-col lg:flex-row justify-center items-center space-y-5 lg:space-y-0 lg:mt-10 text-center">
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center mx-auto" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+      <picture>
+        <source srcset="./images/spinnaker/1BR.avif" type="image/avif">
+        <source srcset="./images/spinnaker/1BR.webp" type="image/webp">
+        <img src="./images/spinnaker/1BR.png" alt="1 Bedroom Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/1BR.png')">
+      </picture>
+    </div>
+
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+      <picture>
+        <source srcset="./images/spinnaker/1brFP.avif" type="image/avif">
+        <source srcset="./images/spinnaker/1brFP.webp" type="image/webp">
+        <img src="./images/spinnaker/1brFP.png" alt="1 Bedroom Floor Plan Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/1brFP.png')">
+      </picture>
+    </div>
+  </div>
+</section>
+
+<section id="fourth" class="w-full min-h-auto pb-20 overflow-x-hidden">
+  <h2 class="w-full text-center text-2xl lg:text-3xl mt-4 mb-6 relative">
+      <span class="relative z-10 bg-white px-4 lg:text-4xl text-3xl tracking-widest">2 BEDROOM UNIT</span>
+      <span class="absolute h-1 w-[90%] bg-gray-800 bottom-3 left-1/2 transform -translate-x-1/2"></span>
+  </h2>
+
+  <div class="w-full h-auto flex flex-col lg:flex-row justify-center items-center space-y-5 lg:space-y-0 lg:mt-10 text-center">
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center mx-auto" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+      <picture>
+        <source srcset="./images/spinnaker/2BR.avif" type="image/avif">
+        <source srcset="./images/spinnaker/2BR.webp" type="image/webp">
+        <img src="./images/spinnaker/2BR.png" alt="2 Bedroom Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/2BR.png')">
+      </picture>
+    </div>
+
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+      <picture>
+        <source srcset="./images/spinnaker/2brFP.avif" type="image/avif">
+        <source srcset="./images/spinnaker/2brFP.webp" type="image/webp">
+        <img src="./images/spinnaker/2brFP.png" alt="2 Bedroom Floor Plan Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/2brFP.png')">
+      </picture>
+    </div>
+  </div>
+</section>
+
+<section id="fifth" class="w-full min-h-auto pb-20 overflow-x-hidden">
+  <h2 class="w-full text-center text-2xl lg:text-3xl mt-4 mb-6 relative">
+      <span class="relative z-10 bg-white px-4 lg:text-4xl text-3xl tracking-widest">3 BEDROOM UNIT</span>
+      <span class="absolute h-1 w-[90%] bg-gray-800 bottom-3 left-1/2 transform -translate-x-1/2"></span>
+  </h2>
+
+  <div class="w-full h-auto flex flex-col lg:flex-row justify-center items-center space-y-5 lg:space-y-0 lg:mt-10 text-center">
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center mx-auto" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+      <picture>
+        <source srcset="./images/spinnaker/3BR.avif" type="image/avif">
+        <source srcset="./images/spinnaker/3BR.webp" type="image/webp">
+        <img src="./images/spinnaker/3BR.png" alt="3 Bedroom Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/3BR.png')">
+      </picture>
+    </div>
+
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+      <picture>
+        <source srcset="./images/spinnaker/3brFP.avif" type="image/avif">
+        <source srcset="./images/spinnaker/3brFP.webp" type="image/webp">
+        <img src="./images/spinnaker/3brFP.png" alt="3 Bedroom Floor Plan Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/3brFP.png')">
+      </picture>
+    </div>
+  </div>
+</section>
+
+<section id="six" class="w-full min-h-auto pb-20 overflow-x-hidden">
+  <h2 class="w-full text-center text-2xl lg:text-3xl mt-4 mb-6 relative">
+      <span class="relative z-10 bg-white px-4 lg:text-4xl text-3xl tracking-widest">BI-LEVEL UNIT</span>
+      <span class="absolute h-1 w-[90%] bg-gray-800 bottom-3 left-1/2 transform -translate-x-1/2"></span>
+  </h2>
+
+  <div class="w-full h-auto flex lg:flex-row justify-center items-center flex-col space-y-5 lg:mt-10 text-center">
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center flex-col space-y-5 mx-auto" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+      <picture>
+        <source srcset="./images/spinnaker/bilevel.avif" type="image/avif">
+        <source srcset="./images/spinnaker/bilevel.webp" type="image/webp">
+        <img src="./images/spinnaker/bilevel.png" alt="Bi-Level Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/bilevel.png')">
+      </picture>
+      <picture>
+        <source srcset="./images/spinnaker/bilevelUP.avif" type="image/avif">
+        <source srcset="./images/spinnaker/bilevelUP.webp" type="image/webp">
+        <img src="./images/spinnaker/bilevelUP.png" alt="Bi-Level Upper Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/bilevelUP.png')">
+      </picture>
+    </div>
+
+    <div class="w-full lg:w-1/2 h-auto flex justify-center items-center flex-col space-y-5" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+      <picture>
+        <source srcset="./images/spinnaker/bilevelFP.avif" type="image/avif">
+        <source srcset="./images/spinnaker/bilevelFP.webp" type="image/webp">
+        <img src="./images/spinnaker/bilevelFP.png" alt="Bi-Level Floor Plan Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/bilevelFP.png')">
+      </picture>
+      <picture>
+        <source srcset="./images/spinnaker/bilevelFPUP.avif" type="image/avif">
+        <source srcset="./images/spinnaker/bilevelFPUP.webp" type="image/webp">
+        <img src="./images/spinnaker/bilevelFPUP.png" alt="Bi-Level Upper Floor Plan Image"
+             class="block mx-auto max-w-[80%] h-auto rounded-md shadow cursor-pointer"
+             onclick="viewImage('./images/spinnaker/bilevelFPUP.png')">
+      </picture>
+    </div>
+  </div>
+</section>
+
+
+<section class="w-full h-auto xl:h-full py-20">
+  <h1 class="w-full text-center text-5xl xl:text-7xl text-gray-700 mb-16 tracking-wide" data-aos="fade-up" data-aos-duration="1000">Spinnaker Unit Details</h1>
+  <div class="overflow-x-auto overflow-y-hidden" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+    <table class="table-auto min-w-[80%] mx-auto border-collapse border border-gray-300 text-sm md:text-base text-center xl:text-2xl" >
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="px-4 py-2">UNIT TYPES</th>
+          <th class="px-4 py-2">SIZE RANGE (SQM)</th>
+          <th class="px-4 py-2">TYPICAL SIZE (SQM)</th>
+          <th class="px-4 py-2">TCP RANGE (Php)</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+        <tr>
+          <td class="border px-4 py-2">Commercial Units</td>
+          <td class="border px-4 py-2">51 - 279 sqm</td>
+          <td class="border px-4 py-2">N/A</td>
+          <td class="border px-4 py-2">24M to 104Mn</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">Studio Units</td>
+          <td class="border px-4 py-2">34 - 37 sqm</td>
+          <td class="border px-4 py-2">37 sqm</td>
+          <td class="border px-4 py-2">12.3M to 13.7Mn</td>
+        </tr>
+        
+        <tr>
+          <td class="border px-4 py-2">1 BR Units</td>
+          <td class="border px-4 py-2">44 - 52 sqm</td>
+          <td class="border px-4 py-2">44 sqm</td>
+          <td class="border px-4 py-2">SOLD OUT</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">2 BR Units</td>
+          <td class="border px-4 py-2">86 - 123 sqm</td>
+          <td class="border px-4 py-2">N/86 sqm; 96 sqm</td>
+          <td class="border px-4 py-2">26.6M to 40.7Mn</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">3 BR Units</td>
+          <td class="border px-4 py-2">109 - 225 sqm</td>
+          <td class="border px-4 py-2">N/A</td>
+          <td class="border px-4 py-2">44.3Mn to 74.4Mn</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">1 BR Bi-Level Unit</td>
+          <td class="border px-4 py-2">70 sqm</td>
+          <td class="border px-4 py-2">70 sqm</td>
+          <td class="border px-4 py-2">SOLD OUT</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">2 BR Bi-Level Unit</td>
+          <td class="border px-4 py-2">130 - 193 sqm</td>
+          <td class="border px-4 py-2">130 sqm</td>
+          <td class="border px-4 py-2">44.4Mn to 45.3Mn</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">3 BR Bi-Level Unit</td>
+          <td class="border px-4 py-2">136 - 315 sqm</td>
+          <td class="border px-4 py-2">136 sqm; 315 sqm</td>
+          <td class="border px-4 py-2">48Mn to 82.9Mn</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">Parking Slot (Car)</td>
+          <td class="border px-4 py-2">12.5 sqm</td>
+          <td class="border px-4 py-2">12.5</td>
+          <td class="border px-4 py-2">1.1Mn to 1.2Mn</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">Parking Slot (Motorcycle)</td>
+          <td class="border px-4 py-2">2.8 sqm</td>
+          <td class="border px-4 py-2">2.8 sqm</td>
+          <td class="border px-4 py-2">169K</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">Storage Units</td>
+          <td class="border px-4 py-2">6.9 - 12.8 sqm</td>
+          <td class="border px-4 py-2">6.9 sqm; 12.8 sqm</td>
+          <td class="border px-4 py-2">1Mn</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+</section>
+
+<section class="w-full h-auto py-40">
+  <h1 class="w-full text-center text-5xl xl:text-7xl text-gray-700 mb-16 tracking-wide" data-aos="fade-up" data-aos-duration="1000">Standard Payment Terms</h1>
+  <div class="overflow-x-auto overflow-y-hidden" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+    <table class="table-auto min-w-[80%] max-w-[80%] mx-auto border-collapse border border-gray-300 text-sm md:text-base text-center xl:text-lg" >
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="px-4 py-2">PAYMENT TERMS</th>
+          <th class="px-4 py-2">PRODUCT TYPES</th>
+          <th class="px-4 py-2">RESERVATION FEES</th>
+          <th class="px-4 py-2">CASH DISCOUNT</th>
+          <th class="px-4 py-2">DOWN PAYMENT (DP)</th>
+          <th class="px-4 py-2">BALANCE</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+        <tr>
+          <td class="border px-4 py-2">Spot Cash</td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">Residential Condo Unit</div>
+            <div class="mb-1">Parking Slot (Car)</div>
+            <div class="mb-1">Commercial Unit</div>
+            <div>Parking Slot (Motorcycle)</div>
+            <div>Storage Unit</div>
+          </td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">Php100,000</div>
+            <div class="mb-1">Php50,000</div>
+            <div class="mb-1">Php500,000</div>
+            <div>Php10,000</div>
+            <div>Php10,000</div>
+          </td>
+          <td class="border px-4 py-2">15% within 30 days after Reservation</td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">N/A</div>
+            <div class="mb-1">N/A</div>
+            <div class="mb-1">N/A</div>
+            <div>N/A</div>
+            <div>N/A</div>
+          </td>
+          <td class="border px-4 py-2">Lumpsum Payment</td>
+        </tr>
+
+        <tr>
+          <td class="border px-4 py-2">Deferred Cash</td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">Residential Condo Unit</div>
+            <div class="mb-1">Parking Slot (Car)</div>
+            <div class="mb-1">Commercial Unit</div>
+            <div>Parking Slot (Motorcycle)</div>
+            <div>Storage Unit</div>
+          </td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">Php100,000</div>
+            <div class="mb-1">Php50,000</div>
+            <div class="mb-1">Php500,000</div>
+            <div>Php10,000</div>
+            <div>Php10,000</div>
+          </td>
+          <td class="border px-4 py-2">7.50%</td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">N/A</div>
+            <div class="mb-1">N/A</div>
+            <div class="mb-1">N/A</div>
+            <div>N/A</div>
+            <div>N/A</div>
+          </td>
+          <td class="border px-4 py-2">Payable over 36 months, interest free</td>
+        </tr>
+        
+        <tr>
+          <td class="border px-4 py-2">Installment Plan</td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">Residential Condo Unit</div>
+            <div class="mb-1">Parking Slot (Car)</div>
+            <div class="mb-1">Commercial Unit</div>
+            <div>Parking Slot (Motorcycle)</div>
+            <div>Storage Unit</div>
+          </td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">Php100,000</div>
+            <div class="mb-1">Php50,000</div>
+            <div class="mb-1">Php500,000</div>
+            <div>Php10,000</div>
+            <div>Php10,000</div>
+          </td>
+          <td class="border px-4 py-2">None</td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">30% DP payable over</div>
+            <div>36 months, interest</div>
+            <div>free</div>
+            <div>N/A</div>
+            <div>N/A</div>
+          </td>
+          <td class="border px-4 py-2 space-y-4">
+            <div class="mb-1">70% balance Lumpsum</div>
+            <div>payment</div>
+            <div></div>
+            <div>N/A</div>
+            <div>N/A</div>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+</section>
+
+
+<section id="amenities" class="w-full h-auto flex flex-col items-center justify-center py-40">
+  <div class="w-[80%] h-auto border-b border-gray-800 text-center">
+    <h1 class="text-5xl xl:text-7xl mb-5 text-gray-700">AMENITIES</h1>
+  </div>
+  
+  
+  <!-- Gallery of Amenities -->
+  <div class="w-[80%] mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
+
+    <div class="w-full h-auto bg-gray-200 rounded-md overflow-hidden shadow relative image-container">
+      <picture>
+        <source srcset="./images/spinnaker/reception.avif" type="image/avif">
+        <source srcset="./images/spinnaker/reception.webp" type="image/webp">
+        <img src="./images/spinnaker/reception.png" class="w-full h-[200px] object-cover cursor-pointer" onclick="viewImage('./images/spinnaker/reception.png')" alt="Reception">
+      </picture>
+      <p class="text-xl absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full tracking-widest">Reception</p>
+  </div>
+  
+
+    <div class="w-full h-auto bg-gray-200 rounded-md overflow-hidden shadow relative image-container">
+      <picture>
+        <source srcset="./images/spinnaker/skybar.avif" type="image/avif">
+        <source srcset="./images/spinnaker/skybar.webp" type="image/webp">
+        <img src="./images/spinnaker/skybar.png" alt="Amenity 1" class="w-full h-[200px] object-cover cursor-pointer" onclick="viewImage('./images/spinnaker/skybar.png')">
+      </picture>
+      <p class="text-xl absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full tracking-widest">Sky Bar</p>
+ 
+    </div>
+
+    <div class="w-full h-auto bg-gray-200 rounded-md overflow-hidden shadow relative image-container">
+      <picture>
+        <source srcset="./images/spinnaker/ballroom.avif" type="image/avif">
+        <source srcset="./images/spinnaker/ballroom.webp" type="image/webp">
+        <img src="./images/spinnaker/ballroom.png" alt="Amenity 1" class="w-full h-[200px] object-cover cursor-pointer" onclick="viewImage('./images/spinnaker/ballroom.png')">
+      </picture>
+      <p class="text-xl absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full tracking-widest">Ballroom</p>
+ 
+    </div>
+
+    <div class="w-full h-auto bg-gray-200 rounded-md overflow-hidden shadow relative image-container">
+      <picture>
+        <source srcset="./images/spinnaker/gym.avif" type="image/avif">
+        <source srcset="./images/spinnaker/gym.webp" type="image/webp">
+        <img src="./images/spinnaker/gym.png" class="w-full h-[200px] object-cover cursor-pointer" onclick="viewImage('./images/spinnaker/gym.png')" alt="Gym">
+      </picture>
+      <p class="text-xl absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full tracking-widest">Gym</p>
+ 
+    </div>
+  
+
+    <div class="w-full h-auto bg-gray-200 rounded-md overflow-hidden shadow relative image-container">
+      <picture>
+        <source srcset="./images/spinnaker/pool.avif" type="image/avif">
+        <source srcset="./images/spinnaker/pool.webp" type="image/webp">
+        <img src="./images/spinnaker/pool.png" alt="Amenity 1" class="w-full h-[200px] object-cover cursor-pointer" onclick="viewImage('./images/spinnaker/pool.png')">
+      </picture>
+      <p class="text-xl absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full tracking-widest">Infinity Lap Pool</p>
+ 
+    </div>
+
+    <div class="w-full h-auto bg-gray-200 rounded-md overflow-hidden shadow relative image-container">
+      <picture>
+        <source srcset="./images/spinnaker/meetingRoom.avif" type="image/avif">
+        <source srcset="./images/spinnaker/meetingRoom.webp" type="image/webp">
+        <img src="./images/spinnaker/meetingRoom.png" alt="Amenity 1" class="w-full h-[200px] object-cover cursor-pointer" onclick="viewImage('./images/spinnaker/meetingRoom.png')">
+      </picture>
+      <p class="text-xl absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full tracking-widest">Meeting Room</p>
+ 
+    </div>
+    
+    <div class="w-full h-auto bg-gray-200 rounded-md overflow-hidden shadow relative image-container">
+      <picture>
+        <source srcset="./images/spinnaker/spa.avif" type="image/avif">
+        <source srcset="./images/spinnaker/spa.webp" type="image/webp">
+        <img src="./images/spinnaker/spa.png" class="w-full h-[200px] object-cover cursor-pointer" onclick="viewImage('./images/spinnaker/spa.png')" alt="Spa">
+      </picture>
+      <p class="text-xl absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full tracking-widest">Spa</p>
+ 
+    </div>
+  
+
+    <div class="w-full h-auto bg-gray-200 rounded-md overflow-hidden shadow relative image-container">
+      <picture>
+        <source srcset="./images/spinnaker/lounge.avif" type="image/avif">
+        <source srcset="./images/spinnaker/lounge.webp" type="image/webp">
+        <img src="./images/spinnaker/lounge.png" alt="Amenity 1" class="w-full h-[200px] object-cover cursor-pointer" onclick="viewImage('./images/spinnaker/lounge.png')">
+      </picture>
+      <p class="text-xl absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full tracking-widest">Lounge</p>
+ 
+    </div>
+
+    
+  </div>
+</section>
+
+<section class="w-full h-auto flex xl:flex-row flex-col space-y-10 xl:space-y-0 justify-center items-center py-28 mt-20">
+  <div class="w-full xl:w-1/2 bg-white lg:rounded-lg shadow-md mx-20 px-1 py-8 text-center">
+      <h1 class="text-2xl xl:text-4xl lg:text-3xl font-bold text-green-600 mb-4">Certificate of Registration No. 0000446</h1>
+      
+  </div>
+  <div class="w-full xl:w-1/2 bg-white lg:rounded-lg shadow-md mx-20 px-1 py-8 text-center">
+      <h1 class="text-2xl xl:text-4xl lg:text-3xl font-bold text-blue-600 mb-4">License to Sell No. 0000446</h1>
+      
+  </div>
+</section>
+
+
+  
+<footer class="bg-gray-900 text-white p-8 w-full overflow-hidden">
+  <div class="container mx-auto flex flex-col lg:flex-row justify-between">
+
+    <!-- Company Info -->
+    <div class="mb-4 lg:mb-0">
+      <picture>
+        <source srcset="./images/logo.avif" type="image/avif">
+        <source srcset="./images/logo.webp" type="image/webp">
+        <img src="./images/logo.png" alt="Landco Pacific Corporation" class="w-40 h-14 mb-4">
+      </picture>
+      <p>Landco Pacific Corporation</p>
+      <p>25th Floor Tower 1, Insular Life Centre</p>
+      <p>Insular Drive, Filinvest Corporate City, Alabang, Muntinlupa, 1781 Metro Manila</p>
+      <p>Phone: (+63) 998 5694 678, (+63) 917 7920 404</p>
+      <p>Email: <a href="mailto:mcdeleon@landcosales.ph">mcdeleon@landcosales.ph</a></p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="mb-4 lg:mb-0">
+      <h3 class="text-lg font-semibold mb-2">Navigation</h3>
+      <div class="flex space-x-5">
+        <a href="./index.html">Home</a>
+        <a href="./spinnaker.html">Spinnaker</a>
+        <a href="./seaside.html">Seaside District</a>
+        <a href="./premier.html">Premier District</a>
+        <a href="./contactUs.html">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Social Media Links -->
+    <div>
+      <h3 class="text-lg font-semibold mb-2">Connect with Us</h3>
+      <div class="flex space-x-4">
+        <a href="https://www.facebook.com/ajilandcosales" target="_blank" class="text-blue-500 hover:text-blue-700"><i class="fa-brands fa-facebook fa-xl"></i></a>
+        <a href="https://www.instagram.com/playalaiyabatangas/" target="_blank" class="text-red-500 hover:text-red-700"><i class="fa-brands fa-instagram fa-xl"></i></a>
+        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvqKMHFDcBJkfGpClgCXLgdkSXJncrDqBSZKvJVdZtxzHVfPqjBXtRFdVHtHNBwlHDrVqB" target="_blank" class="text-amber-500 hover:text-amber-700"><i class="fa-solid fa-envelope fa-xl"></i></a>
+        <a href="viber://chat?number=+639985694678" class="text-viber hover:text-violet-950"><i class="fa-brands fa-viber fa-xl"></i></a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+    
+
+    <script>
+        function changeBackground(imageUrl) {
+            var backgroundDiv = document.getElementById('backgroundDiv');
+            backgroundDiv.style.backgroundImage = 'url(' + imageUrl + ')';
+        }
+
+        function navigateToSecond() {
+    // Scroll to the element with the id 'second'
+    document.querySelector('#second').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
+  function backToTop() {
+    // Scroll to the top of the page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  function toggleBackToTopButton() {
+    var button = document.getElementById('backToTopBtn');
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+        // Show the button and add the fade-in class
+        button.style.display = 'block';
+        button.classList.remove('fade-out');
+        button.classList.add('fade-in');
+    } else {
+        // Add the fade-out class
+        button.classList.remove('fade-in');
+        button.classList.add('fade-out');
+    }
+}
+
+
+  // Add an event listener to handle scrolling and update button visibility
+  window.onscroll = function () {
+    toggleBackToTopButton();
+  };
+
+  const scrollers = document.querySelectorAll(".scroller");
+
+  // If a user hasn't opted in for reduced motion, then we add the animation
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    addAnimation();
+  }
+  
+  function addAnimation() {
+    scrollers.forEach((scroller) => {
+      // Add data-animated="true" to every `.scroller` on the page
+      scroller.setAttribute("data-animated", true);
+  
+      // Make an array from the elements within `.scroller-inner`
+      const scrollerInner = scroller.querySelector(".scroller__inner");
+      const scrollerContent = Array.from(scrollerInner.children);
+  
+      // For each item in the array, clone it, add aria-hidden, and append it into the `.scroller-inner`
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        duplicatedItem.setAttribute("aria-hidden", true);
+        scrollerInner.appendChild(duplicatedItem);
+      });
+  
+      // Add event listeners for hover
+      scroller.addEventListener("mouseover", () => {
+        pauseAnimation(scroller);
+      });
+  
+      scroller.addEventListener("mouseout", () => {
+        resumeAnimation(scroller);
+      });
+    });
+  }
+  
+  function pauseAnimation(scroller) {
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    scrollerInner.style.animationPlayState = "paused";
+  }
+  
+  function resumeAnimation(scroller) {
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    scrollerInner.style.animationPlayState = "running";
+  }
+
+  function showMenu() {
+    let menu = document.getElementById("menu");
+    menu.classList.toggle("hidden");
+  }
+
+    AOS.init();
+
+    function viewImage(imagePath) {
+        // Create a modal element
+        var modal = document.createElement("div");
+        modal.classList.add("modal");
+
+        // Create an image element inside the modal
+        var modalImage = document.createElement("img");
+        modalImage.src = imagePath;
+        modalImage.classList.add("modal-content");
+
+        // Append the image to the modal
+        modal.appendChild(modalImage);
+
+        // Append the modal to the body
+        document.body.appendChild(modal);
+
+        // Add a click event listener to close the modal when clicked outside the image
+        modal.addEventListener("click", function () {
+            modal.remove();
+        });
+
+        // Prevent clicks on the image from closing the modal
+        modalImage.addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
+    }
+    </script>
+</body>
+</html>

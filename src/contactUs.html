@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Contact Us</title>
+    <!-- Include Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</head>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+     p {
+    font-family: 'Archivo', sans-serif;
+   
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+ 
+}
+a {
+    font-family: 'Archivo', sans-serif;
+ 
+}
+
+    #slideshow {
+    position: relative;
+    overflow: hidden;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for the navigation links */
+ul li {
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+
+/* Style for the underline effect on hover and active */
+ul li a {
+    text-decoration: none;
+    color: #000; /* Change the color as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    top: 25px;
+    left: 0;
+    background-color: #000; /* Change the color as needed */
+    transition: width 0.4s ease;
+}
+
+ul li a:hover::before,
+ul li a.active::before {
+    width: 100%;
+}
+
+
+@keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeOutToRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    
+}
+
+</style>
+<body class="h-screen w-full overflow-x-hidden">
+
+
+    <div class="hidden fixed inset-0 bg-white overflow-hidden z-50" id="menu">
+        <div class="flex flex-col justify-start items-center w-full h-full space-y-10 mt-20">
+          <i class="fa-solid fa-x absolute right-5 top-7 text-2xl cursor-pointer" onclick="showMenu()"></i>
+          <p><a href="./index.html" class="text-4xl tracking-wider">Home</a></p>
+          <p><a href="./spinnaker.html" class="text-4xl tracking-wider">Spinnaker</a></p>
+          <p><a href="./seaside.html" class="text-4xl tracking-wider">Seaside District</a></p>
+          <p><a href="./premier.html" class="text-4xl tracking-wider">Premier District</a></p>
+          <p><a href="./contactUs.html" class="text-4xl tracking-wider">Contact Us</a></p>
+        </div>
+       </div>
+
+    
+      <!-- First Section -->
+    <section id="first" class="h-full w-full">
+    
+      <!-- navbar -->
+     <nav class="w-full h-[10%] flex justify-between items-center shadow">
+        
+        <img src="./images/logo.png" alt="logo" class="w-40 h-14 xl:ml-10">
+    
+        <div class="xl:hidden absolute right-8" onclick="showMenu()" id="burger">
+        <i class=" fa-solid fa-bars fa-xl cursor-pointer"></i>
+      </div>
+        <ul class="mr-10 hidden xl:block">
+            <li><a href="./index.html" class=" tracking-wider">Home</a></li>
+            <li><a href="./spinnaker.html" class="tracking-wider">Spinnaker</a></li>
+            <li><a href="./seaside.html" class="tracking-wider">Seaside District</a></li>
+            <li><a href="./premier.html" class="tracking-wider">Premier District</a></li>
+            <button><a href="./contactUs.html" class="bg-amber-500 text-gray-800 font-semibold px-8 py-3 rounded-full hover:bg-amber-600 transition duration-300 tracking-wider">Contact Us</a></button>
+        </ul>
+     </nav>
+     <div class="w-full h-auto xl:h-[90%] flex justify-center items-center xl:space-x-10 xl:flex-row flex-col space-y-20 xl:space-y-0 pb-10 xl:pb-0">
+
+        <div class="w-[90%] h-auto xl:w-[60%] xl:h-[90%] flex justify-center items-center mt-20 xl:mt-0">
+
+            <div class="w-full h-auto" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000">
+                <form action="https://api.web3forms.com/submit" method="POST" class="bg-white shadow-xl rounded px-8 pt-6 pb-8 mb-4">
+
+                    <input type="hidden" name="access_key" value="de4147e6-ee62-44a1-8350-093ab5322124">
+
+                    <div class="mb-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+        
+                    <div class="mb-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+        
+                    <div class="mb-4" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
+                        <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+        
+                    <div class="mb-4" data-aos="fade-up" data-aos-delay="700" data-aos-duration="1500">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message:</label>
+                        <textarea id="message" name="message" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+                    </div>
+        
+                    <div class="flex items-center justify-between" data-aos="fade-up" data-aos-delay="900" data-aos-duration="1500">
+                        <button type="submit" class="w-full xl:w-40 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        
+        <div class="w-[90%] h-auto xl:w-[30%] xl:h-[60%] rounded shadow-xl flex justify-center p-5 bg-white" data-aos="flip-right" data-aos-delay="50" data-aos-duration="1500">
+            <div class="w-full h-auto">
+                <h1 class="text-5xl text-gray-700 font-bold mb-4 text-center">Connect with Us</h1>
+                <div class="flex space-x-10 xl:space-x-14 w-full justify-center mt-10 px-5">
+                    <a href="https://www.facebook.com/ajilandcosales" target="_blank" class="text-blue-500 hover:text-blue-700 xl:text-6xl text-4xl"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/playalaiyabatangas/" target="_blank" class="text-red-500 hover:text-red-700 xl:text-6xl text-4xl"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvqKMHFDcBJkfGpClgCXLgdkSXJncrDqBSZKvJVdZtxzHVfPqjBXtRFdVHtHNBwlHDrVqB" target="_blank" class="text-4xl text-amber-500 hover:text-amber-700 xl:text-6xl"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="viber://chat?number=+639985694678" class="text-viber hover:text-violet-950 xl:text-6xl text-4xl"><i class="fa-brands fa-viber"></i></a>
+                </div>
+                <div class="flex items-center w-full mt-10">
+                    <i class="ml-5 xl:ml-14 fa-solid fa-phone-alt xl:text-4xl text-4xl text-green-500 mr-2"></i>
+                    <p class="xl:text-2xl tracking-widest font-bold ml-2 leading-relaxed text-gray-700">(+63) 998 5694 678</p>
+                </div>
+                <div class="flex items-center w-full mt-10">
+                    <i class="ml-5 xl:ml-14 fa-solid fa-phone-alt xl:text-4xl text-4xl text-green-500 mr-2"></i>
+                    <p class="xl:text-2xl tracking-widest font-bold ml-2 leading-relaxed text-gray-700">(+63) 917 7920 404</p>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+    </section>
+    
+
+
+    
+
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+    <script>
+        AOS.init();
+
+        function showMenu() {
+    let menu = document.getElementById("menu");
+    menu.classList.toggle("hidden");
+  }
+    </script>
+</body>
+</html>
