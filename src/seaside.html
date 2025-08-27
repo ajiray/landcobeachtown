@@ -154,20 +154,76 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
         transform: translateX(20px);
     }
 }
+/* Flash Alert Styles */
+#flashAlert {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  color: white;
+  font-weight: bold;
+  padding: 16px 32px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-size: 1.1rem;
+  text-align: center;
+  z-index: 9999;
+  transition: top 0.6s ease-in-out;
+  max-width: 90%;
+}
+#flashAlert.show { top: 0; }
+#flashAlert button {
+  margin-left: 20px;
+  background: white;
+  color: #dc2626;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#flashAlert button:hover { background: #fca5a5; }
     </style>
 </head>
 <body class="h-screen w-full overflow-x-hidden">
 
-    <div class="hidden fixed inset-0 bg-white overflow-hidden z-50" id="menu">
-      <div class="flex flex-col justify-start items-center w-full h-full space-y-10 mt-20">
-        <i class="fa-solid fa-x absolute right-5 top-7 text-2xl cursor-pointer" onclick="showMenu()"></i>
-        <p><a href="./index.html" class="text-4xl">Home</a></p>
-        <p><a href="./spinnaker.html" class="text-4xl">Spinnaker</a></p>
-        <p><a href="./seaside.html" class="text-4xl">Seaside District</a></p>
-        <p><a href="./premier.html" class="text-4xl">Premier District</a></p>
-        <p><a href="./contactUs.html" class="text-4xl tracking-wider">Contact Us</a></p>
-      </div>
-     </div>
+  <!-- Flash Alert Banner -->
+<div id="flashAlert">
+  🚨 FLASH NEWS: <span class="tracking-wider">Seaside District Project is <strong>SOLD OUT!</strong></span>
+  <button onclick="closeAlert()">Close</button>
+</div>
+
+  <div id="menu" 
+  class="hidden fixed inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 
+         overflow-hidden z-50 transform translate-x-full transition-transform duration-500 ease-in-out shadow-2xl">
+<div class="flex flex-col justify-start items-center w-full h-full space-y-10 mt-24 px-6">
+
+ <!-- Close Button -->
+ <i class="fa-solid fa-x absolute right-6 top-6 text-3xl text-gray-600 cursor-pointer 
+           hover:text-gray-900 hover:rotate-90 transition-transform duration-300"
+    onclick="showMenu()"></i>
+
+ <!-- Nav Links -->
+ <p><a href="./index.html" 
+       class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Home</a></p>
+ <p><a href="./spinnaker.html" 
+       class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Spinnaker</a></p>
+ <p><a href="./seaside.html" 
+       class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Seaside District</a></p>
+ <p><a href="./premier.html" 
+       class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Premier District</a></p>
+ <p><a href="./residences.html" 
+       class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Residences</a></p>
+ <p><a href="./casobe.html" 
+       class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Casobe</a></p>
+ <p><a href="./nautilus.html" 
+       class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Nautilus</a></p>
+ <p><a href="./contactUs.html" 
+       class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Contact Us</a></p>
+</div>
+</div>
   
   
       <button class="text-2xl fixed right-5 lg:bottom-5 bottom-10 z-30 hidden bg-blue-400 text-white hover:bg-blue-600 transition duration-300 ease-in-out" id="backToTopBtn" onclick="backToTop()">
@@ -194,6 +250,9 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
           <li><a href="./spinnaker.html" class="tracking-wider">Spinnaker</a></li>
           <li><a href="./seaside.html" class="border-b-2 border-black pb-2 tracking-wider">Seaside District</a></li>
           <li><a href="./premier.html" class="tracking-wider">Premier District</a></li>
+          <li><a href="./residences.html" class="tracking-wider">Residences</a></li>
+        <li><a href="./casobe.html" class="tracking-wider">Casobe</a></li>
+        <li><a href="./nautilus.html" class="tracking-wider">Nautilus</a></li>
           <button><a href="./contactUs.html" class="bg-amber-500 text-gray-800 font-semibold px-8 py-3 rounded-full hover:bg-amber-600 transition duration-300 tracking-wider">Contact Us</a></button>
       </ul>
    </nav>
@@ -249,68 +308,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     </section>
 
 
-    <section id="second" class="w-full h-auto py-20">
-        <div class="w-full h-[10%] justify-center items-center pt-14 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-700">Explore Available Lots</h1>
-            <p class="text-lg md:text-xl mb-8 text-gray-600">Discover your ideal piece of land in our prestigious community.</p>
-        </div>
-        <div class="w-full h-[90%] flex flex-col justify-center items-center px-10 md:flex-row">
-    
-            <div class="w-full md:w-[55%] mb-6 md:mb-0">
-                <picture>
-                  <source srcset="./images/premierSeaside/inventory.avif" type="image/avif">
-                  <source srcset="./images/premierSeaside/inventory.webp" type="image/webp">
-                  <img src="./images/premierSeaside/inventory.png" alt="Available Lots" class="mt-10 md:mt-0 w-full max-w-[900px] mx-auto h-auto rounded-lg shadow-lg">
-                </picture>
-            </div>
-            <div class="w-full md:w-[40%] lg:ml-10">
-                <table class="w-full border-collapse text-center text-base xl:text-2xl">
-                    <thead class="text-gray-700">
-                        <tr>
-                            <th class="py-2 px-4 border-b">Block</th>
-                            <th class="py-2 px-4 border-b">Lot</th>
-                            <th class="py-2 px-4 border-b">Square Meters</th>
-                            <th class="py-2 px-4 border-b">Price per Sqm</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-600">
-    
-                        <tr>
-                            <td class="py-2 px-4 border-b">3</td>
-                            <td class="py-2 px-4 border-b">3</td>
-                            <td class="py-2 px-4 border-b">300</td>
-                            <td class="py-2 px-4 border-b">PHP 58,000</td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b">3</td>
-                            <td class="py-2 px-4 border-b">5</td>
-                            <td class="py-2 px-4 border-b">406</td>
-                            <td class="py-2 px-4 border-b">PHP 56,900</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="py-2 px-4 border-b">3</td>
-                            <td class="py-2 px-4 border-b">6</td>
-                            <td class="py-2 px-4 border-b">353</td>
-                            <td class="py-2 px-4 border-b">PHP 58,600</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="py-2 px-4 border-b">10</td>
-                            <td class="py-2 px-4 border-b">8</td>
-                            <td class="py-2 px-4 border-b">397</td>
-                            <td class="py-2 px-4 border-b">PHP 65,600</td>
-                        </tr>
-    
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-    
-
-
-    <section id="third" class="w-full h-auto py-40 overflow-x-hidden">
+    <section id="second" class="w-full h-auto pb-20 overflow-x-hidden">
         <div class="w-full h-[10%] justify-center items-center text-center mb-10">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-700 mt-20">News and Update</h1>
         </div>
@@ -359,48 +357,51 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 
 
-    <footer class="bg-gray-900 text-white p-8 overflow-hidden mt-20 xl:mt-0">
-        <div class="container mx-auto flex flex-col lg:flex-row justify-between">
-      
-          <!-- Company Info -->
-          <div class="mb-4 lg:mb-0">
-            <picture>
-              <source srcset="./images/logo.avif" type="image/avif">
-              <source srcset="./images/logo.webp" type="image/webp">
-              <img src="./images/logo.png" alt="Landco Pacific Corporation" class="w-40 h-14 mb-4">
-            </picture>
-            <p>Landco Pacific Corporation</p>
-            <p>25th Floor Tower 1, Insular Life Centre</p>
-            <p>Insular Drive, Filinvest Corporate City, Alabang, Muntinlupa, 1781 Metro Manila</p>
-            <p>Phone: (+63) 998 5694 678, (+63) 917 7920 404</p>
-            <p>Email: <a href="mailto:mcdeleon@landcosales.ph">mcdeleon@landcosales.ph</a></p>
-          </div>
-      
-          <!-- Navigation Links -->
-          <div class="mb-4 lg:mb-0">
-            <h3 class="text-lg font-semibold mb-2">Navigation</h3>
-            <div class="flex space-x-5">
-              <a href="./index.html">Home</a>
-              <a href="./spinnaker.html">Spinnaker</a>
-              <a href="./seaside.html">Seaside District</a>
-              <a href="./premier.html">Premier District</a>
-              <a href="./contactUs.html">Contact Us</a>
-            </div>
-          </div>
-      
-          <!-- Social Media Links -->
-          <div>
-            <h3 class="text-lg font-semibold mb-2">Connect with Us</h3>
-            <div class="flex space-x-4">
-              <a href="https://www.facebook.com/ajilandcosales" target="_blank" class="text-blue-500 hover:text-blue-700"><i class="fa-brands fa-facebook fa-xl"></i></a>
-              <a href="https://www.instagram.com/playalaiyabatangas/" target="_blank" class="text-red-500 hover:text-red-700"><i class="fa-brands fa-instagram fa-xl"></i></a>
-              <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvqKMHFDcBJkfGpClgCXLgdkSXJncrDqBSZKvJVdZtxzHVfPqjBXtRFdVHtHNBwlHDrVqB" target="_blank" class="text-amber-500 hover:text-amber-700"><i class="fa-solid fa-envelope fa-xl"></i></a>
-              <a href="viber://chat?number=+639985694678" class="text-viber hover:text-violet-950"><i class="fa-brands fa-viber fa-xl"></i></a>
-            </div>
-          </div>
-      
+    <footer class="bg-gray-900 text-white p-8 w-full overflow-hidden">
+      <div class="container mx-auto flex flex-col lg:flex-row justify-between">
+    
+        <!-- Company Info -->
+        <div class="mb-4 lg:mb-0">
+          <picture>
+            <source srcset="./images/logo.avif" type="image/avif">
+            <source srcset="./images/logo.webp" type="image/webp">
+            <img src="./images/logo.png" alt="Landco Pacific Corporation" class="w-40 h-14 mb-4">
+          </picture>
+          <p>Landco Pacific Corporation</p>
+          <p>25th Floor Tower 1, Insular Life Centre</p>
+          <p>Insular Drive, Filinvest Corporate City, Alabang, Muntinlupa, 1781 Metro Manila</p>
+          <p>Phone: (+63) 998 5694 678, (+63) 917 7920 404</p>
+          <p>Email: <a href="mailto:mcdeleon@landcosales.ph">mcdeleon@landcosales.ph</a></p>
         </div>
-      </footer>
+    
+        <!-- Navigation Links -->
+        <div class="mb-4 lg:mb-0">
+          <h3 class="text-lg font-semibold mb-2">Navigation</h3>
+          <div class="flex space-x-5">
+            <a href="./index.html">Home</a>
+            <a href="./spinnaker.html">Spinnaker</a>
+            <a href="./seaside.html">Seaside District</a>
+            <a href="./premier.html">Premier District</a>
+            <a href="./residences.html">Residences</a>
+            <a href="./casobe.html">Casobe</a>
+            <a href="./nautilus.html">Nautilus</a>
+            <a href="./contactUs.html">Contact Us</a>
+          </div>
+        </div>
+    
+        <!-- Social Media Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Connect with Us</h3>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/ajilandcosales" target="_blank" class="text-blue-500 hover:text-blue-700"><i class="fa-brands fa-facebook fa-xl"></i></a>
+            <a href="https://www.instagram.com/playalaiyabatangas/" target="_blank" class="text-red-500 hover:text-red-700"><i class="fa-brands fa-instagram fa-xl"></i></a>
+            <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvqKMHFDcBJkfGpClgCXLgdkSXJncrDqBSZKvJVdZtxzHVfPqjBXtRFdVHtHNBwlHDrVqB" target="_blank" class="text-amber-500 hover:text-amber-700"><i class="fa-solid fa-envelope fa-xl"></i></a>
+            <a href="viber://chat?number=+639985694678" class="text-viber hover:text-violet-950"><i class="fa-brands fa-viber fa-xl"></i></a>
+          </div>
+        </div>
+    
+      </div>
+    </footer>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

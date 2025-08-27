@@ -4,9 +4,37 @@ function changeBackground(imageUrl) {
 }
 
 function showMenu() {
-let menu = document.getElementById("menu");
-menu.classList.toggle("hidden");
-} 
+  let menu = document.getElementById("menu");
+
+  if (menu.classList.contains("hidden")) {
+    // show with animation
+    menu.classList.remove("hidden");
+    setTimeout(() => {
+      menu.classList.remove("translate-x-full");
+      menu.classList.add("translate-x-0");
+    }, 10); // slight delay so transition triggers
+  } else {
+    // hide with animation
+    menu.classList.remove("translate-x-0");
+    menu.classList.add("translate-x-full");
+
+    // wait for animation to finish before hiding completely
+    setTimeout(() => {
+      menu.classList.add("hidden");
+    }, 500); // match duration-500
+  }
+}
+
+ // Show flash alert on page load
+ window.addEventListener("load", () => {
+  const alertBox = document.getElementById("flashAlert");
+  setTimeout(() => { alertBox.classList.add("show"); }, 500);
+});
+
+// Close alert
+function closeAlert() {
+  document.getElementById("flashAlert").style.top = "-100px";
+}
 
 function navigateToSecond() {
 // Scroll to the element with the id 'second'

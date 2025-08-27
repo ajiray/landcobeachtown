@@ -235,16 +235,35 @@ ul li a.active::before {
 </style>
 <body class="h-screen w-full overflow-x-hidden">
 
-  <div class="hidden fixed inset-0 bg-white overflow-hidden z-50" id="menu">
-    <div class="flex flex-col justify-start items-center w-full h-full space-y-10 mt-20">
-      <i class="fa-solid fa-x absolute right-5 top-7 text-2xl cursor-pointer" onclick="showMenu()"></i>
-      <p><a href="./index.html" class="text-4xl tracking-wider">Home</a></p>
-      <p><a href="./spinnaker.html" class="text-4xl tracking-wider">Spinnaker</a></p>
-      <p><a href="./seaside.html" class="text-4xl tracking-wider">Seaside District</a></p>
-      <p><a href="./premier.html" class="text-4xl tracking-wider">Premier District</a></p>
-      <p><a href="./contactUs.html" class="text-4xl tracking-wider">Contact Us</a></p>
-    </div>
-   </div>
+  <div id="menu" 
+     class="hidden fixed inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 
+            overflow-hidden z-50 transform translate-x-full transition-transform duration-500 ease-in-out shadow-2xl">
+  <div class="flex flex-col justify-start items-center w-full h-full space-y-10 mt-24 px-6">
+
+    <!-- Close Button -->
+    <i class="fa-solid fa-x absolute right-6 top-6 text-3xl text-gray-600 cursor-pointer 
+              hover:text-gray-900 hover:rotate-90 transition-transform duration-300"
+       onclick="showMenu()"></i>
+
+    <!-- Nav Links -->
+    <p><a href="./index.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Home</a></p>
+    <p><a href="./spinnaker.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Spinnaker</a></p>
+    <p><a href="./seaside.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Seaside District</a></p>
+    <p><a href="./premier.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Premier District</a></p>
+    <p><a href="./residences.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Residences</a></p>
+    <p><a href="./casobe.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Casobe</a></p>
+    <p><a href="./nautilus.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Nautilus</a></p>
+    <p><a href="./contactUs.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Contact Us</a></p>
+  </div>
+</div>
 
 
     <button class="text-2xl fixed right-5 lg:bottom-5 bottom-10 z-30 hidden bg-blue-400 text-white hover:bg-blue-600 transition duration-300 ease-in-out" id="backToTopBtn" onclick="backToTop()">
@@ -285,8 +304,15 @@ ul li a.active::before {
         <li><a href="./index.html" class="border-b-2 border-gray-200 pb-2 tracking-wider">Home</a></li>
         <li><a href="./spinnaker.html" class="tracking-wider">Spinnaker</a></li>
         <li><a href="./seaside.html" class="tracking-wider">Seaside District</a></li>
-        <li><a href="./premier.html" class="tracking-wider border-r-2 border-gray-300 pr-4">Premier District</a></li>
-        <button><a href="./contactUs.html" class="bg-amber-500 text-gray-800 font-semibold px-8 py-3 rounded-full hover:bg-amber-600 transition duration-300 tracking-wider">Contact Us</a></button>
+        <li><a href="./premier.html" class="tracking-wider">Premier District</a></li>
+        <li><a href="./residences.html" class="tracking-wider">Residences</a></li>
+        <li><a href="./casobe.html" class="tracking-wider">Casobe</a></li>
+        <li><a href="./nautilus.html" class="tracking-wider border-r-2 border-gray-300 pr-4">Nautilus</a></li>
+        <button>
+          <a href="./contactUs.html" class="bg-amber-500 text-gray-800 font-semibold px-8 py-3 rounded-full hover:bg-amber-600 transition duration-300 tracking-wider">
+            Contact Us
+          </a>
+        </button>
       </ul>
     </nav>
 
@@ -359,7 +385,7 @@ ul li a.active::before {
             width="400" height="500"
             loading="lazy" decoding="async">
         </picture>
-        <a href="#"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
+        <a href="./nautilus.html"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
         <h2 class="text-xl font-bold absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full">The Nautilus</h2>
       </div>
       <!-- The Casobe Estate -->
@@ -374,7 +400,7 @@ ul li a.active::before {
             width="400" height="500"
             loading="lazy" decoding="async">
         </picture>
-        <a href="#"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
+        <a href="./casobe.html"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
         <h2 class="text-xl font-bold absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full">The Casobe Estate</h2>
       </div>
       <!-- The Residences -->
@@ -389,7 +415,7 @@ ul li a.active::before {
             width="400" height="500"
             loading="lazy" decoding="async">
         </picture>
-        <a href="#"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
+        <a href="./residences.html"><button class="absolute top-2 right-2 bg-blue-400 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"><i class="fa-solid fa-arrow-right"></i></button></a>
         <h2 class="text-xl font-bold absolute bottom-0 bg-black bg-opacity-50 text-white p-2 rounded-md text-center w-full">The Residences</h2>
       </div>
     </div>
@@ -608,13 +634,15 @@ ul li a.active::before {
     </div>
   </section>
 
-  <footer class="bg-gray-900 text-white p-8">
+  <footer class="bg-gray-900 text-white p-8 w-full overflow-hidden">
     <div class="container mx-auto flex flex-col lg:flex-row justify-between">
-      <div class="mb-4 lg:mb-0 space-y-2">
+  
+      <!-- Company Info -->
+      <div class="mb-4 lg:mb-0">
         <picture>
           <source srcset="./images/logo.avif" type="image/avif">
           <source srcset="./images/logo.webp" type="image/webp">
-          <img src="./images/logo.png" alt="Landco Pacific Corporation" class="w-40 h-14 mb-4" width="160" height="56" loading="lazy" decoding="async">
+          <img src="./images/logo.png" alt="Landco Pacific Corporation" class="w-40 h-14 mb-4">
         </picture>
         <p>Landco Pacific Corporation</p>
         <p>25th Floor Tower 1, Insular Life Centre</p>
@@ -622,18 +650,23 @@ ul li a.active::before {
         <p>Phone: (+63) 998 5694 678, (+63) 917 7920 404</p>
         <p>Email: <a href="mailto:mcdeleon@landcosales.ph">mcdeleon@landcosales.ph</a></p>
       </div>
-
+  
+      <!-- Navigation Links -->
       <div class="mb-4 lg:mb-0">
         <h3 class="text-lg font-semibold mb-2">Navigation</h3>
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./spinnaker.html">Spinnaker</a></li>
-          <li><a href="./seaside.html">Seaside District</a></li>
-          <li><a href="./premier.html">Premier District</a></li>
-          <li><a href="./contactUs.html">Contact Us</a></li>
-        </ul>
+        <div class="flex space-x-5">
+          <a href="./index.html">Home</a>
+          <a href="./spinnaker.html">Spinnaker</a>
+          <a href="./seaside.html">Seaside District</a>
+          <a href="./premier.html">Premier District</a>
+          <a href="./residences.html">Residences</a>
+          <a href="./casobe.html">Casobe</a>
+          <a href="./nautilus.html">Nautilus</a>
+          <a href="./contactUs.html">Contact Us</a>
+        </div>
       </div>
-
+  
+      <!-- Social Media Links -->
       <div>
         <h3 class="text-lg font-semibold mb-2">Connect with Us</h3>
         <div class="flex space-x-4">
@@ -643,6 +676,7 @@ ul li a.active::before {
           <a href="viber://chat?number=+639985694678" class="text-viber hover:text-violet-950"><i class="fa-brands fa-viber fa-xl"></i></a>
         </div>
       </div>
+  
     </div>
   </footer>
  
