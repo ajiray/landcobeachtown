@@ -3,9 +3,1119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>The Residences</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="icon" type="image/png" href="./images/logo.png">
+<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+    p {
+    font-family: 'Archivo', sans-serif;
+   
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+ 
+}
+a {
+    font-family: 'Archivo', sans-serif;
+ 
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for the navigation links */
+ul li {
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+
+/* Style for the underline effect on hover and active */
+ul li a {
+    text-decoration: none;
+    color: #000; /* Change the color as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    top: 25px;
+    left: 0;
+    background-color: #000; /* Change the color as needed */
+    transition: width 0.4s ease;
+}
+
+ul li a:hover::before,
+ul li a.active::before {
+    width: 100%;
+}
+
+
+    .clip {
+        clip-path: polygon(14% 0, 100% 0%, 100% 100%, 0% 100%);
+    }
     
+    #backgroundDiv {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .hati {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+}
+
+.slick-carousel-container {
+      
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Custom styles for the carousel slides */
+    .slick-slide {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .slick-prev,
+    .slick-next {
+      font-size: 34px;
+      color: #fff;
+      padding: 20px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .slick-prev {
+      left: 10px;
+    }
+
+    .slick-next {
+      right: 10px;
+    }
+    .glass {
+        background: rgba( 255, 255, 255, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 3px );
+-webkit-backdrop-filter: blur( 3px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+    #backToTopBtn {
+    animation: fadeLeft 0.5s ease-out;
+    border: none;
+    border-radius: 100%; /* Rounded corners */
+    padding: 5px 10px; /* Adjust padding as needed */
+    cursor: pointer;
+  }
+
+  #backToTopBtn.fade-out {
+    animation: fadeOutToRight 0.5s ease-out;
+    opacity: 0; /* Ensure the initial state is transparent */
+    pointer-events: none; /* Disable pointer events during the fade-out */
+} 
+
+@keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeOutToRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+    </style>
+</head>
+<body class="h-screen w-full overflow-x-hidden">
+
+    <div id="menu" 
+     class="hidden fixed inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 
+            overflow-hidden z-50 transform translate-x-full transition-transform duration-500 ease-in-out shadow-2xl">
+  <div class="flex flex-col justify-start items-center w-full h-full space-y-10 mt-24 px-6">
+
+    <!-- Close Button -->
+    <i class="fa-solid fa-x absolute right-6 top-6 text-3xl text-gray-600 cursor-pointer 
+              hover:text-gray-900 hover:rotate-90 transition-transform duration-300"
+       onclick="showMenu()"></i>
+
+    <!-- Nav Links -->
+    <p><a href="./index.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Home</a></p>
+    <p><a href="./spinnaker.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Spinnaker</a></p>
+    <p><a href="./seaside.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Seaside District</a></p>
+    <p><a href="./premier.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Premier District</a></p>
+    <p><a href="./residences.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Residences</a></p>
+    <p><a href="./casobe.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Casobe</a></p>
+    <p><a href="./nautilus.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Nautilus</a></p>
+    <p><a href="./contactUs.html" 
+          class="text-4xl font-semibold tracking-wider text-gray-800 hover:text-amber-500 transition duration-300">Contact Us</a></p>
+  </div>
+</div>
+  
+  
+      <button class="text-2xl fixed right-5 lg:bottom-5 bottom-10 z-30 hidden bg-blue-400 text-white hover:bg-blue-600 transition duration-300 ease-in-out" id="backToTopBtn" onclick="backToTop()">
+        <i class="fa-solid fa-angles-up"></i>
+        </button>
+  
+    <!-- First Section -->
+  <section id="first" class="h-full w-full">
+  
+    <!-- navbar -->
+   <nav class="w-full h-[10%] flex justify-between items-center shadow">
+      
+      <picture>
+        <source srcset="./images/logo.avif" type="image/avif">
+        <source srcset="./images/logo.webp" type="image/webp">
+        <img src="./images/logo.png" alt="logo" class="w-40 h-14 xl:ml-10">
+      </picture>
+  
+      <div class="xl:hidden absolute right-8" onclick="showMenu()" id="burger">
+      <i class=" fa-solid fa-bars fa-lg cursor-pointer"></i>
+    </div>
+      <ul class="mr-10 hidden xl:block">
+          <li><a href="./index.html" class="tracking-wider">Home</a></li>
+          <li><a href="./spinnaker.html" class="tracking-wider">Spinnaker</a></li>
+          <li><a href="./seaside.html" class="tracking-wider">Seaside District</a></li>
+          <li><a href="./premier.html" class="tracking-wider">Premier District</a></li>
+          <li><a href="./residences.html" class="tracking-wider border-b-2 border-black pb-2">Residences</a></li>
+        <li><a href="./casobe.html" class="tracking-wider">Casobe</a></li>
+        <li><a href="./nautilus.html" class="tracking-wider">Nautilus</a></li>
+          <button><a href="./contactUs.html" class="bg-amber-500 text-gray-800 font-semibold px-8 py-3 rounded-full hover:bg-amber-600 transition duration-300 tracking-wider">Contact Us</a></button>
+      </ul>
+   </nav>
+     <div class="w-full h-[90%] flex justify-center items-center flex-col lg:flex-row">
+
+        <div class="w-full lg:w-[50%] h-[40%] hati lg:h-full flex justify-center items-center relative lg:hidden" style="background-image: url(./images/premierDistrict/1.png); background-size: cover; background-position: center;">
+        </div>
+        <div class="w-full lg:w-[50%] h-[60%] lg:h-full flex justify-center lg:items-center relative mt-10 lg:mt-0">
+            <div class="text-center px-5 lg:px-0">
+                <h1 class="text-4xl md:text-8xl font-extrabold text-gray-800 leading-tight mb-6" data-aos="fade-up" data-aos-duration="1000">
+                  Welcome to<br>
+                  <span class="text-emerald-300">The Residences</span>
+                </h1>
+                <p class="text-lg text-gray-600">
+                  Discover luxury living in our stunning condo community.
+                </p>
+                <a href="#" class="mt-3 inline-block px-6 py-3 bg-emerald-400 font-semibold rounded-full transition duration-300 hover:bg-emerald-600 text-white" onclick="navigateToSecond()">
+                  Explore
+                </a>
+              </div>
+              
+    
+            <div class="absolute right-2 h-full hidden flex-col space-y-5 justify-end items-center mb-10 xl:flex">
+                <button class="mr-[-60px]" onclick="changeBackground('./images/premierDistrict/1.png')">
+                  <picture>
+                    <source srcset="./images/premierDistrict/1.avif" type="image/avif">
+                    <source srcset="./images/premierDistrict/1.webp" type="image/webp">
+                    <img src="./images/premierDistrict/1.png" alt="" class="w-[60px] h-[60px] rounded-full">
+                  </picture>
+                </button>
+                <button class="mr-[-35px]" onclick="changeBackground('./images/spinnaker/spinnaker4.png')">
+                  <picture>
+                    <source srcset="./images/spinnaker/spinnaker4.avif" type="image/avif">
+                    <source srcset="./images/spinnaker/spinnaker4.webp" type="image/webp">
+                    <img src="./images/spinnaker/spinnaker4.png" alt="" class="w-[60px] h-[60px] rounded-full">
+                  </picture>
+                </button>
+                <button class="mr-[-10px]" onclick="changeBackground('./images/spinnaker/spinnaker3.png')">
+                  <picture>
+                    <source srcset="./images/spinnaker/spinnaker3.avif" type="image/avif">
+                    <source srcset="./images/spinnaker/spinnaker3.webp" type="image/webp">
+                    <img src="./images/spinnaker/spinnaker3.png" alt="" class="w-[60px] h-[60px] rounded-full">
+                  </picture>
+                </button>
+            </div>
+        </div>
+    
+        <div id="backgroundDiv" class="w-[50%] h-full clip hidden lg:block" style="background-image: url(./images/premierDistrict/1.png); background-size: cover; background-position: center;">    
+    </div>
+    </section>
+
+    <section id="second" class="w-full h-auto  overflow-hidden">
+        <div class="w-full h-[10%] justify-center items-center pt-8 md:pt-14 text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 md:mb-4 text-gray-700">Explore Available Lots</h1>
+            <p class="text-base md:text-lg mb-4 md:mb-8 text-gray-600">Discover your ideal piece of land in our prestigious community.</p>
+        </div>
+        <div class="w-full h-auto md:h-[90%] flex flex-col md:flex-row justify-center items-center px-4 md:px-10">
+            <div class="w-full md:w-[40%] h-auto mb-6 md:mb-0">
+                <picture>
+                  <source srcset="./images/premierDistrict/map.avif" type="image/avif">
+                  <source srcset="./images/premierDistrict/map.webp" type="image/webp">
+                  <img src="./images/premierDistrict/map.png" alt="Available Lots" class="mt-6 md:mt-0 w-full max-w-[700px] mx-auto md:mx-0 rounded-lg shadow-lg">
+                </picture>
+            </div>
+          <div class="w-full md:w-[40%] h-auto py-20">
+            <div class="max-h-[400px] overflow-y-auto overflow-x-hidden lg:ml-10">
+              <table class="w-full pt-20 border-collapse text-center text-base xl:text-2xl md:mt-0">
+                  <thead class="text-gray-700">
+                      <tr>
+                          <th class="py-2 px-4 border-b">Block</th>
+                          <th class="py-2 px-4 border-b">Lot</th>
+                          <th class="py-2 px-4 border-b">Square Meters</th>
+                          <th class="py-2 px-4 border-b">Price per Sqm</th>
+                      </tr>
+                  </thead>
+                  <tbody class="text-gray-600">
+                    <tr>
+                        <td class="py-2 px-4 border-b">11</td>
+                        <td class="py-2 px-4 border-b">1</td>
+                        <td class="py-2 px-4 border-b">529</td>
+                        <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">11</td>
+                        <td class="py-2 px-4 border-b">2</td>
+                        <td class="py-2 px-4 border-b">485</td>
+                        <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">14</td>
+                        <td class="py-2 px-4 border-b">3</td>
+                        <td class="py-2 px-4 border-b">300</td>
+                        <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">14</td>
+                        <td class="py-2 px-4 border-b">7</td>
+                        <td class="py-2 px-4 border-b">300</td>
+                        <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">15</td>
+                        <td class="py-2 px-4 border-b">5</td>
+                        <td class="py-2 px-4 border-b">383</td>
+                        <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">15</td>
+                        <td class="py-2 px-4 border-b">6</td>
+                        <td class="py-2 px-4 border-b">339</td>
+                        <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">15</td>
+                        <td class="py-2 px-4 border-b">7</td>
+                        <td class="py-2 px-4 border-b">300</td>
+                        <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">15</td>
+                        <td class="py-2 px-4 border-b">9</td>
+                        <td class="py-2 px-4 border-b">390</td>
+                        <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">16</td>
+                        <td class="py-2 px-4 border-b">1</td>
+                        <td class="py-2 px-4 border-b">330</td>
+                        <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">16</td>
+                        <td class="py-2 px-4 border-b">2</td>
+                        <td class="py-2 px-4 border-b">300</td>
+                        <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">16</td>
+                        <td class="py-2 px-4 border-b">3</td>
+                        <td class="py-2 px-4 border-b">300</td>
+                        <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">16</td>
+                        <td class="py-2 px-4 border-b">6</td>
+                        <td class="py-2 px-4 border-b">307</td>
+                        <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">16</td>
+                        <td class="py-2 px-4 border-b">7</td>
+                        <td class="py-2 px-4 border-b">300</td>
+                        <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">16</td>
+                        <td class="py-2 px-4 border-b">8</td>
+                        <td class="py-2 px-4 border-b">300</td>
+                        <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4 border-b">16</td>
+                        <td class="py-2 px-4 border-b">9</td>
+                        <td class="py-2 px-4 border-b">344</td>
+                        <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="py-2 px-4 border-b">17</td>
+                      <td class="py-2 px-4 border-b">1</td>
+                      <td class="py-2 px-4 border-b">423</td>
+                      <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">17</td>
+                      <td class="py-2 px-4 border-b">2</td>
+                      <td class="py-2 px-4 border-b">350</td>
+                      <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">17</td>
+                      <td class="py-2 px-4 border-b">5</td>
+                      <td class="py-2 px-4 border-b">472</td>
+                      <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">17</td>
+                      <td class="py-2 px-4 border-b">6</td>
+                      <td class="py-2 px-4 border-b">300</td>
+                      <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">17</td>
+                      <td class="py-2 px-4 border-b">7</td>
+                      <td class="py-2 px-4 border-b">390</td>
+                      <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">18</td>
+                      <td class="py-2 px-4 border-b">1</td>
+                      <td class="py-2 px-4 border-b">376</td>
+                      <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">18</td>
+                      <td class="py-2 px-4 border-b">2</td>
+                      <td class="py-2 px-4 border-b">300</td>
+                      <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">18</td>
+                      <td class="py-2 px-4 border-b">3</td>
+                      <td class="py-2 px-4 border-b">415</td>
+                      <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">18</td>
+                      <td class="py-2 px-4 border-b">5</td>
+                      <td class="py-2 px-4 border-b">392</td>
+                      <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">18</td>
+                      <td class="py-2 px-4 border-b">6</td>
+                      <td class="py-2 px-4 border-b">300</td>
+                      <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">18</td>
+                      <td class="py-2 px-4 border-b">7</td>
+                      <td class="py-2 px-4 border-b">390</td>
+                      <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">19</td>
+                      <td class="py-2 px-4 border-b">1</td>
+                      <td class="py-2 px-4 border-b">511</td>
+                      <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">19</td>
+                      <td class="py-2 px-4 border-b">2</td>
+                      <td class="py-2 px-4 border-b">378</td>
+                      <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">19</td>
+                      <td class="py-2 px-4 border-b">3</td>
+                      <td class="py-2 px-4 border-b">467</td>
+                      <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                  </tr>
+                  <tr>
+                      <td class="py-2 px-4 border-b">19</td>
+                      <td class="py-2 px-4 border-b">5</td>
+                      <td class="py-2 px-4 border-b">400</td>
+                      <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                  </tr>
+
+                  <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">6</td>
+                    <td class="py-2 px-4 border-b">306</td>
+                    <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">7</td>
+                    <td class="py-2 px-4 border-b">307</td>
+                    <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">8</td>
+                    <td class="py-2 px-4 border-b">407</td>
+                    <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">9</td>
+                    <td class="py-2 px-4 border-b">501</td>
+                    <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">10</td>
+                    <td class="py-2 px-4 border-b">476</td>
+                    <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">11</td>
+                    <td class="py-2 px-4 border-b">365</td>
+                    <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">12</td>
+                    <td class="py-2 px-4 border-b">357</td>
+                    <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">14</td>
+                    <td class="py-2 px-4 border-b">350</td>
+                    <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">15</td>
+                    <td class="py-2 px-4 border-b">446</td>
+                    <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">16</td>
+                    <td class="py-2 px-4 border-b">389</td>
+                    <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">19</td>
+                    <td class="py-2 px-4 border-b">17</td>
+                    <td class="py-2 px-4 border-b">444</td>
+                    <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">20</td>
+                    <td class="py-2 px-4 border-b">1</td>
+                    <td class="py-2 px-4 border-b">376</td>
+                    <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">20</td>
+                    <td class="py-2 px-4 border-b">2</td>
+                    <td class="py-2 px-4 border-b">300</td>
+                    <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">20</td>
+                    <td class="py-2 px-4 border-b">3</td>
+                    <td class="py-2 px-4 border-b">389</td>
+                    <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b">20</td>
+                    <td class="py-2 px-4 border-b">5</td>
+                    <td class="py-2 px-4 border-b">373</td>
+                    <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+                </tr>
+
+                <tr>
+                  <td class="py-2 px-4 border-b">20</td>
+                  <td class="py-2 px-4 border-b">6</td>
+                  <td class="py-2 px-4 border-b">300</td>
+                  <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">20</td>
+                  <td class="py-2 px-4 border-b">7</td>
+                  <td class="py-2 px-4 border-b">390</td>
+                  <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">21</td>
+                  <td class="py-2 px-4 border-b">1</td>
+                  <td class="py-2 px-4 border-b">376</td>
+                  <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">21</td>
+                  <td class="py-2 px-4 border-b">2</td>
+                  <td class="py-2 px-4 border-b">300</td>
+                  <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">21</td>
+                  <td class="py-2 px-4 border-b">3</td>
+                  <td class="py-2 px-4 border-b">379</td>
+                  <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">21</td>
+                  <td class="py-2 px-4 border-b">5</td>
+                  <td class="py-2 px-4 border-b">396</td>
+                  <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">21</td>
+                  <td class="py-2 px-4 border-b">6</td>
+                  <td class="py-2 px-4 border-b">300</td>
+                  <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">22</td>
+                  <td class="py-2 px-4 border-b">1</td>
+                  <td class="py-2 px-4 border-b">376</td>
+                  <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">22</td>
+                  <td class="py-2 px-4 border-b">2</td>
+                  <td class="py-2 px-4 border-b">300</td>
+                  <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">22</td>
+                  <td class="py-2 px-4 border-b">3</td>
+                  <td class="py-2 px-4 border-b">300</td>
+                  <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">22</td>
+                  <td class="py-2 px-4 border-b">5</td>
+                  <td class="py-2 px-4 border-b">316</td>
+                  <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">22</td>
+                  <td class="py-2 px-4 border-b">6</td>
+                  <td class="py-2 px-4 border-b">405</td>
+                  <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">22</td>
+                  <td class="py-2 px-4 border-b">7</td>
+                  <td class="py-2 px-4 border-b">396</td>
+                  <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">22</td>
+                  <td class="py-2 px-4 border-b">8</td>
+                  <td class="py-2 px-4 border-b">390</td>
+                  <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+              </tr>
+              <tr>
+                  <td class="py-2 px-4 border-b">24</td>
+                  <td class="py-2 px-4 border-b">2</td>
+                  <td class="py-2 px-4 border-b">300</td>
+                  <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+              </tr>
+
+              <tr>
+                <td class="py-2 px-4 border-b">24</td>
+                <td class="py-2 px-4 border-b">3</td>
+                <td class="py-2 px-4 border-b">300</td>
+                <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">24</td>
+                <td class="py-2 px-4 border-b">5</td>
+                <td class="py-2 px-4 border-b">400</td>
+                <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">24</td>
+                <td class="py-2 px-4 border-b">6</td>
+                <td class="py-2 px-4 border-b">384</td>
+                <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">24</td>
+                <td class="py-2 px-4 border-b">7</td>
+                <td class="py-2 px-4 border-b">300</td>
+                <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">24</td>
+                <td class="py-2 px-4 border-b">8</td>
+                <td class="py-2 px-4 border-b">300</td>
+                <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">25</td>
+                <td class="py-2 px-4 border-b">3</td>
+                <td class="py-2 px-4 border-b">300</td>
+                <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">25</td>
+                <td class="py-2 px-4 border-b">6</td>
+                <td class="py-2 px-4 border-b">409</td>
+                <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">25</td>
+                <td class="py-2 px-4 border-b">7</td>
+                <td class="py-2 px-4 border-b">300</td>
+                <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">28</td>
+                <td class="py-2 px-4 border-b">9</td>
+                <td class="py-2 px-4 border-b">300</td>
+                <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">28</td>
+                <td class="py-2 px-4 border-b">11</td>
+                <td class="py-2 px-4 border-b">375</td>
+                <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">29</td>
+                <td class="py-2 px-4 border-b">2</td>
+                <td class="py-2 px-4 border-b">300</td>
+                <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">29</td>
+                <td class="py-2 px-4 border-b">9</td>
+                <td class="py-2 px-4 border-b">300</td>
+                <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">29</td>
+                <td class="py-2 px-4 border-b">10</td>
+                <td class="py-2 px-4 border-b">300</td>
+                <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">29</td>
+                <td class="py-2 px-4 border-b">11</td>
+                <td class="py-2 px-4 border-b">376</td>
+                <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+            </tr>
+            <tr>
+                <td class="py-2 px-4 border-b">30</td>
+                <td class="py-2 px-4 border-b">1</td>
+                <td class="py-2 px-4 border-b">390</td>
+                <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+            </tr>
+
+            <tr>
+              <td class="py-2 px-4 border-b">30</td>
+              <td class="py-2 px-4 border-b">3</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">30</td>
+              <td class="py-2 px-4 border-b">9</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">30</td>
+              <td class="py-2 px-4 border-b">10</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">30</td>
+              <td class="py-2 px-4 border-b">11</td>
+              <td class="py-2 px-4 border-b">376</td>
+              <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">31</td>
+              <td class="py-2 px-4 border-b">1</td>
+              <td class="py-2 px-4 border-b">390</td>
+              <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">31</td>
+              <td class="py-2 px-4 border-b">2</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">31</td>
+              <td class="py-2 px-4 border-b">3</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">31</td>
+              <td class="py-2 px-4 border-b">9</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">31</td>
+              <td class="py-2 px-4 border-b">10</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">31</td>
+              <td class="py-2 px-4 border-b">11</td>
+              <td class="py-2 px-4 border-b">376</td>
+              <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">32</td>
+              <td class="py-2 px-4 border-b">1</td>
+              <td class="py-2 px-4 border-b">390</td>
+              <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">32</td>
+              <td class="py-2 px-4 border-b">2</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">32</td>
+              <td class="py-2 px-4 border-b">3</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">32</td>
+              <td class="py-2 px-4 border-b">9</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+          <tr>
+              <td class="py-2 px-4 border-b">32</td>
+              <td class="py-2 px-4 border-b">10</td>
+              <td class="py-2 px-4 border-b">300</td>
+              <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+          </tr>
+
+          <tr>
+            <td class="py-2 px-4 border-b">32</td>
+            <td class="py-2 px-4 border-b">11</td>
+            <td class="py-2 px-4 border-b">367</td>
+            <td class="py-2 px-4 border-b">PHP 39,200.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">33</td>
+            <td class="py-2 px-4 border-b">1</td>
+            <td class="py-2 px-4 border-b">390</td>
+            <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">33</td>
+            <td class="py-2 px-4 border-b">2</td>
+            <td class="py-2 px-4 border-b">300</td>
+            <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">33</td>
+            <td class="py-2 px-4 border-b">3</td>
+            <td class="py-2 px-4 border-b">300</td>
+            <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">33</td>
+            <td class="py-2 px-4 border-b">9</td>
+            <td class="py-2 px-4 border-b">300</td>
+            <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">33</td>
+            <td class="py-2 px-4 border-b">10</td>
+            <td class="py-2 px-4 border-b">300</td>
+            <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">33</td>
+            <td class="py-2 px-4 border-b">11</td>
+            <td class="py-2 px-4 border-b">367</td>
+            <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">34</td>
+            <td class="py-2 px-4 border-b">1</td>
+            <td class="py-2 px-4 border-b">390</td>
+            <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">34</td>
+            <td class="py-2 px-4 border-b">2</td>
+            <td class="py-2 px-4 border-b">300</td>
+            <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">34</td>
+            <td class="py-2 px-4 border-b">3</td>
+            <td class="py-2 px-4 border-b">300</td>
+            <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">34</td>
+            <td class="py-2 px-4 border-b">9</td>
+            <td class="py-2 px-4 border-b">300</td>
+            <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">34</td>
+            <td class="py-2 px-4 border-b">10</td>
+            <td class="py-2 px-4 border-b">300</td>
+            <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">34</td>
+            <td class="py-2 px-4 border-b">11</td>
+            <td class="py-2 px-4 border-b">376</td>
+            <td class="py-2 px-4 border-b">PHP 40,100.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">35</td>
+            <td class="py-2 px-4 border-b">1</td>
+            <td class="py-2 px-4 border-b">390</td>
+            <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+        </tr>
+        <tr>
+            <td class="py-2 px-4 border-b">35</td>
+            <td class="py-2 px-4 border-b">2</td>
+            <td class="py-2 px-4 border-b">300</td>
+            <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+        </tr>
+
+        <tr>
+          <td class="py-2 px-4 border-b">35</td>
+          <td class="py-2 px-4 border-b">3</td>
+          <td class="py-2 px-4 border-b">300</td>
+          <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+      </tr>
+      <tr>
+          <td class="py-2 px-4 border-b">35</td>
+          <td class="py-2 px-4 border-b">9</td>
+          <td class="py-2 px-4 border-b">300</td>
+          <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+      </tr>
+      <tr>
+          <td class="py-2 px-4 border-b">35</td>
+          <td class="py-2 px-4 border-b">10</td>
+          <td class="py-2 px-4 border-b">300</td>
+          <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+      </tr>
+      <tr>
+          <td class="py-2 px-4 border-b">35</td>
+          <td class="py-2 px-4 border-b">11</td>
+          <td class="py-2 px-4 border-b">376</td>
+          <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+      </tr>
+      <tr>
+          <td class="py-2 px-4 border-b">36</td>
+          <td class="py-2 px-4 border-b">9</td>
+          <td class="py-2 px-4 border-b">300</td>
+          <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+      </tr>
+      <tr>
+          <td class="py-2 px-4 border-b">36</td>
+          <td class="py-2 px-4 border-b">10</td>
+          <td class="py-2 px-4 border-b">300</td>
+          <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+      </tr>
+      <tr>
+          <td class="py-2 px-4 border-b">36</td>
+          <td class="py-2 px-4 border-b">11</td>
+          <td class="py-2 px-4 border-b">376</td>
+          <td class="py-2 px-4 border-b">PHP 39,700.00</td>
+      </tr>
+      <tr>
+          <td class="py-2 px-4 border-b">37</td>
+          <td class="py-2 px-4 border-b">9</td>
+          <td class="py-2 px-4 border-b">300</td>
+          <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+      </tr>
+      <tr>
+          <td class="py-2 px-4 border-b">37</td>
+          <td class="py-2 px-4 border-b">10</td>
+          <td class="py-2 px-4 border-b">300</td>
+          <td class="py-2 px-4 border-b">PHP 38,400.00</td>
+      </tr>
+                </tbody>
+              </table>
+          </div>
+          
+               
+          </div>
+      </div>
+  </section>
+    
+
+  <section id="third" class="w-full h-auto py-40 overflow-x-hidden">
+    <div class="w-full h-[10%] justify-center items-center text-center mb-10">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-700 mt-20">News and Update</h1>
+  </div>
+
+  <div class="slick-carousel-container">
+      <div class="slick-carousel">
+        <div class="slick-slide relative">
+          <picture>
+            <source srcset="./images/premierDistrict/update1.avif" type="image/avif">
+            <source srcset="./images/premierDistrict/update1.webp" type="image/webp">
+            <img src="./images/premierDistrict/update1.png" alt="Slide 1" class="xl:rounded-xl">
+          </picture>
+          <div class="w-full h-10 glass absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:-translate-x-0 xl:left-5 xl:bottom-5 xl:w-[400px] xl:h-[200px]">
+              <h1 class="text-[12px] text-center xl:text-left xl:text-2xl text-white xl:p-5">97% Completed on Land Dev Works
+                On-going land development works
+                Target Completion: April 2024
+                
+                  </h1>
+          </div>
+        </div>
+        
+        <div class="slick-slide relative">
+          <picture>
+            <source srcset="./images/premierDistrict/update2.avif" type="image/avif">
+            <source srcset="./images/premierDistrict/update2.webp" type="image/webp">
+            <img src="./images/premierDistrict/update2.png" alt="Slide 1" class="xl:rounded-xl">
+          </picture>
+          <div class="w-full h-10 glass absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:-translate-x-0 xl:left-5 xl:bottom-5 xl:w-[350px] xl:h-[140px]">
+              <h1 class="text-[12px] text-center xl:text-2xl text-white xl:p-2">
+                Club Pool (Rendering)
+                 Target Start of Construction: 1st QRT 2024
+                  </h1>
+          </div>
+      </div>
+
+
+      <div class="slick-slide relative">
+          <picture>
+            <source srcset="./images/premierDistrict/update3.avif" type="image/avif">
+            <source srcset="./images/premierDistrict/update3.webp" type="image/webp">
+            <img src="./images/premierDistrict/update3.png" alt="Slide 1" class="xl:rounded-xl">
+          </picture>
+          <div class="w-full h-10 glass absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:-translate-x-0 xl:left-5 xl:bottom-5 xl:w-[350px] xl:h-[140px]">
+              <h1 class="text-[12px] text-center xl:text-2xl text-white xl:p-2">Nature Trail (Rendering)
+                Target Start of Construction : 1st QRT 2024</h1>
+          </div>
+        </div>
+
+        <div class="slick-slide relative">
+          <picture>
+            <source srcset="./images/premierDistrict/update4.avif" type="image/avif">
+            <source srcset="./images/premierDistrict/update4.webp" type="image/webp">
+            <img src="./images/premierDistrict/update4.png" alt="Slide 1" class="xl:rounded-xl">
+          </picture>
+        
+        </div>
+
+        <div class="slick-slide relative">
+          <picture>
+            <source srcset="./images/premierDistrict/update5.avif" type="image/avif">
+            <source srcset="./images/premierDistrict/update5.webp" type="image/webp">
+            <img src="./images/premierDistrict/update5.png" alt="Slide 1" class="xl:rounded-xl">
+          </picture>
+          <div class="w-full h-10 glass absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:-translate-x-0 xl:left-5 xl:bottom-5 xl:w-[350px] xl:h-[140px]">
+              <h1 class="text-[12px] text-center xl:text-2xl text-gray-900 xl:p-2">
+                Iconic Gate and Guard House (Rendering)
+ Target Start of Construction 1st Quarter 2024
+                  </h1>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="bg-gray-900 text-white p-8 w-full overflow-hidden">
+    <div class="container mx-auto flex flex-col lg:flex-row justify-between">
+  
+      <!-- Company Info -->
+      <div class="mb-4 lg:mb-0">
+        <picture>
+          <source srcset="./images/logo.avif" type="image/avif">
+          <source srcset="./images/logo.webp" type="image/webp">
+          <img src="./images/logo.png" alt="Landco Pacific Corporation" class="w-40 h-14 mb-4">
+        </picture>
+        <p>Landco Pacific Corporation</p>
+        <p>25th Floor Tower 1, Insular Life Centre</p>
+        <p>Insular Drive, Filinvest Corporate City, Alabang, Muntinlupa, 1781 Metro Manila</p>
+        <p>Phone: (+63) 998 5694 678, (+63) 917 7920 404</p>
+        <p>Email: <a href="mailto:mcdeleon@landcosales.ph">mcdeleon@landcosales.ph</a></p>
+      </div>
+  
+      <!-- Navigation Links -->
+      <div class="mb-4 lg:mb-0">
+        <h3 class="text-lg font-semibold mb-2">Navigation</h3>
+        <div class="flex space-x-5">
+          <a href="./index.html">Home</a>
+          <a href="./spinnaker.html">Spinnaker</a>
+          <a href="./seaside.html">Seaside District</a>
+          <a href="./premier.html">Premier District</a>
+          <a href="./residences.html">Residences</a>
+          <a href="./casobe.html">Casobe</a>
+          <a href="./nautilus.html">Nautilus</a>
+          <a href="./contactUs.html">Contact Us</a>
+        </div>
+      </div>
+  
+      <!-- Social Media Links -->
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Connect with Us</h3>
+        <div class="flex space-x-4">
+          <a href="https://www.facebook.com/ajilandcosales" target="_blank" class="text-blue-500 hover:text-blue-700"><i class="fa-brands fa-facebook fa-xl"></i></a>
+          <a href="https://www.instagram.com/playalaiyabatangas/" target="_blank" class="text-red-500 hover:text-red-700"><i class="fa-brands fa-instagram fa-xl"></i></a>
+          <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvqKMHFDcBJkfGpClgCXLgdkSXJncrDqBSZKvJVdZtxzHVfPqjBXtRFdVHtHNBwlHDrVqB" target="_blank" class="text-amber-500 hover:text-amber-700"><i class="fa-solid fa-envelope fa-xl"></i></a>
+          <a href="viber://chat?number=+639985694678" class="text-viber hover:text-violet-950"><i class="fa-brands fa-viber fa-xl"></i></a>
+        </div>
+      </div>
+  
+    </div>
+  </footer>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./residences.js"></script>
 </body>
 </html>
